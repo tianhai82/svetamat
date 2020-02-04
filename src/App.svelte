@@ -81,17 +81,16 @@
   <div>
     {sliderValue}
     <input
-      class="w-full"
+      class="w-full mb-8"
       bind:value={sliderValue}
       type="range"
       min="9"
       max="11"
-      step="0.03" />
+      step="0.01" />
 
     <Slider
       min={9}
       max={11}
-      step={0.03}
       bind:value={sliderValue}
       thumbColor="text-red-600"
       trackEmptyColor="bg-red-200"
