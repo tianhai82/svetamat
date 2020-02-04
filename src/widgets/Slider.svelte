@@ -169,11 +169,7 @@ $: thumbSize = mousedown ? 1.4 : 0.75;
     stroke-width: 3.5;
     -webkit-transition: fill 0.1s ease-out, stroke 0.1s ease-out,
     -webkit-transform 0.1s ease-out;
-    transition: fill 0.1s ease-out, stroke 0.1s ease-out,
-    -webkit-transform 0.1s ease-out;
     -o-transition: transform 0.1s ease-out, fill 0.1s ease-out,
-    stroke 0.1s ease-out;
-    transition: transform 0.1s ease-out, fill 0.1s ease-out,
     stroke 0.1s ease-out;
     transition: transform 0.1s ease-out, fill 0.1s ease-out,
     stroke 0.1s ease-out, -webkit-transform 0.1s ease-out;
@@ -185,11 +181,7 @@ $: thumbSize = mousedown ? 1.4 : 0.75;
     border-radius: 50%;
     -webkit-transition: opacity 0.26667s ease-out,
     background-color 0.26667s ease-out, -webkit-transform 0.26667s ease-out;
-    transition: opacity 0.26667s ease-out, background-color 0.26667s ease-out,
-    -webkit-transform 0.26667s ease-out;
     -o-transition: transform 0.26667s ease-out, opacity 0.26667s ease-out,
-    background-color 0.26667s ease-out;
-    transition: transform 0.26667s ease-out, opacity 0.26667s ease-out,
     background-color 0.26667s ease-out;
     transition: transform 0.26667s ease-out, opacity 0.26667s ease-out,
     background-color 0.26667s ease-out, -webkit-transform 0.26667s ease-out;
