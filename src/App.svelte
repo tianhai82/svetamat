@@ -7,6 +7,8 @@ import NavigationDrawer from './widgets/NavigationDrawer.svelte';
 import Dialog from './widgets/Dialog.svelte';
 import Slider from './widgets/Slider.svelte';
 import { countries } from './countries';
+import Spinner from './widgets/Spinner.svelte';
+import Progress from './widgets/Progress.svelte';
 
 export let name = '';
 let countrySelected = {};
@@ -69,6 +71,7 @@ let dialogVisible = false;
     </div>
   </NavigationDrawer>
   <div class="flex flex-row-reverse">
+    <Spinner/>
     <Button
       text
       textColor="text-gray-900"
@@ -76,6 +79,7 @@ let dialogVisible = false;
       Toggle
     </Button>
   </div>
+  <Progress/>
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
     Reset Slider Value
   </Button>

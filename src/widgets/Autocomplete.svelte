@@ -11,8 +11,8 @@ export let minCharactersToSearch = 0;
 export let noResultsText = 'No results found';
 export let maxLen = undefined;
 
-export let borderColor = 'border-blue-700';
-export let labelColor = 'text-blue-700';
+export let borderColor = 'border-gray-700';
+export let labelColor = 'text-gray-700';
 export let helperText = '';
 export let helperTextColor = '';
 export let outlined = false;
@@ -41,6 +41,15 @@ $: {
     filteredListItems = maxLen ? tempFiltered.slice(0, maxLen) : tempFiltered;
   }
 }
+$: if (typeof value === 'string') {
+  setText(value || '');
+} else {
+  setText(value[labelFieldName] || '');
+}
+
+function setText(v) {
+  text = v;
+}
 
 function setVal(item) {
   itemClicked = false;
@@ -49,11 +58,6 @@ function setVal(item) {
   if (value !== item) {
     value = item;
     dispatch('change', item);
-  }
-  if (typeof item === 'string') {
-    text = item;
-  } else {
-    text = item[labelFieldName];
   }
 }
 
@@ -114,10 +118,10 @@ function onBlur() {
          on:blur={onBlur}
          on:focus="{onFocus}"/>
   <div style="max-height: 320px;"
-        on:mouseenter={()=> itemClicked = true}
-        on:mouseleave={()=> itemClicked = false}
-       class="absolute -mt-4 bg-white rounded-sm w-full shadow-lg z-10 overflow-y-auto {listVisible
-      && text.length>=minCharactersToSearch ? '' : 'hidden'}">
+       on:mouseenter={()=> itemClicked = true}
+       on:mouseleave={()=> itemClicked = false}
+         class="absolute -mt-4 bg-white rounded-sm w-full shadow-lg z-10
+       overflow-y-auto {listVisible && text.length>=minCharactersToSearch ? '' : 'hidden'}">
     {#if filteredListItems.length>0}
       <ul class="my-2">
         {#each filteredListItems as item,i}
