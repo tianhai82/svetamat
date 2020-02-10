@@ -9,7 +9,7 @@ export let marginTop = '';
   {#if visible}
     <div
          class="{`flex fixed top-0 bottom-0 z-40 left-0 right-0 ${marginTop}`}">
-      <div class="shadow-2xl" class:`${marginTop}`={marginTop}
+      <div class="elevation-8" class:`${marginTop}`={marginTop}
            transition:fly="{{ x: -300, duration: 300 }}">
         <slot></slot>
       </div>
@@ -20,7 +20,7 @@ export let marginTop = '';
 {:else}
   {#if visible}
     <div transition:fly="{{ x: -300, duration: 300 }}"
-         class="{`shadow-2xl fixed top-0 bottom-0 left-0 z-40 ${marginTop}`}">
+         class="{`elevation-8 fixed top-0 bottom-0 left-0 z-40 ${marginTop}`}">
       <slot></slot>
     </div>
   {/if}

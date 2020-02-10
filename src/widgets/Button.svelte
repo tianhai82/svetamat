@@ -16,11 +16,11 @@ export let bgColor = 'bg-transparent';
 let cls = 'focus:outline-none uppercase tracking-wide ripple';
 
 if (outlined) {
-  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor} hover:shadow-lg active:shadow-none`;
+  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor} hover:elevation-1 active:elevation-0`;
 } else if (text) {
-  cls += ` ${textColor} ${bgColor} hover:shadow-lg active:shadow-inner`;
+  cls += ` ${textColor} ${bgColor} hover:elevation-1 active:elevation-0`;
 } else {
-  cls += ` shadow-md hover:shadow-xl active:shadow-none ${textColor} ${bgColor}`;
+  cls += ` elevation-2 hover:elevation-4 active:elevation-0 ${textColor} ${bgColor}`;
 }
 if (rounded) {
   cls += ' rounded-full';

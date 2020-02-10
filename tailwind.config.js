@@ -5,5 +5,7 @@ module.exports = {
   variants: {
     boxShadow: ['responsive', 'hover', 'focus', 'active'],
   },
-  plugins: []
+  plugins: [
+    require('tailwindcss-elevation')(['responsive', 'hover', 'active']),
+  ]
 }

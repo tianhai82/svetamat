@@ -120,7 +120,7 @@ function onBlur() {
   <div style="max-height: 320px;"
        on:mouseenter={()=> itemClicked = true}
        on:mouseleave={()=> itemClicked = false}
-         class="absolute -mt-4 bg-white rounded-sm w-full shadow-lg z-10
+         class="absolute -mt-4 bg-white rounded-sm w-full elevation-4 z-10
        overflow-y-auto {listVisible && text.length>=minCharactersToSearch ? '' : 'hidden'}">
     {#if filteredListItems.length>0}
       <ul class="my-2">
