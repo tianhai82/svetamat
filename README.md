@@ -1,5 +1,5 @@
 # SVETAMAT
-[Demo](https://tianhai82.github.io/svelte-tailwind-material/)
+[Demo](https://tianhai82.github.io/svetamat/)
 
 Svetamat is a set of Svelte 3 Material widgets styled using Tailwindcss. Svetamat enables you to build beautiful user interfaces together with Tailwindcss.
 
