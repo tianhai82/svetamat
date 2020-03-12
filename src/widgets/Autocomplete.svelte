@@ -23,7 +23,7 @@ export let keywordsFunction = function (item) {
   if (item === undefined || item === null) {
     return '';
   }
-  return keywordsFieldName ? item[keywordsFieldName] : item;
+  return keywordsFieldName ? item[keywordsFieldName].toLowerCase() : item.toLowerCase();
 };
 
 let filteredListItems = [];
@@ -120,8 +120,8 @@ function onBlur() {
   <div style="max-height: 320px;"
        on:mouseenter={()=> itemClicked = true}
        on:mouseleave={()=> itemClicked = false}
-         class="absolute -mt-4 bg-white rounded-sm w-full elevation-4 z-10
-       overflow-y-auto {listVisible && text.length>=minCharactersToSearch ? '' : 'hidden'}">
+         class="{`absolute bg-white -mt-4 rounded-sm w-full elevation-4 z-10 overflow-y-auto ${listVisible
+         && text.length>=minCharactersToSearch ? '' : 'hidden'}`}">
     {#if filteredListItems.length>0}
       <ul class="my-2">
         {#each filteredListItems as item,i}

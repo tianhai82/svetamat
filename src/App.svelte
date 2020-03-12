@@ -21,7 +21,7 @@ $: if (name.trim().length === 0) {
   error = '';
 }
 
-const fruits = ['apple', 'orange', 'pear', 'strawberry'];
+const fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
 let fruit = '';
 
 function countryChanged(item) {
@@ -40,17 +40,17 @@ let dialogVisible = false;
 
 <Tailwindcss/>
 <div
-  class="bg-blue-800 fixed left-0 right-0 top-0 h-16 mt-0 z-10 flex items-center
-  justify-between">
+  class="bg-pink-100 fixed left-0 right-0 top-0 h-16 mt-0 z-10 flex items-center
+  justify-between elevation-4">
   <div class="flex items-center">
     <i
-      class="material-icons text-white ml-6 cursor-pointer ripple"
+      class="material-icons text-gray-900 ml-6 cursor-pointer ripple"
       on:click={() => (visible = !visible)}>
       menu
     </i>
-    <span class="ml-4 text-xl font-semibold text-white">Time to Trade</span>
+    <span class="ml-4 text-xl font-semibold text-gray-900">Time to Trade</span>
   </div>
-  <span class="mr-6 text-lg uppercase text-white">Tan Yin Loo</span>
+  <span class="mr-6 text-lg uppercase text-gray-900">Tan Yin Loo</span>
 </div>
 <div class="mb-5 mt-16 lg:px-32 px-4">
   <NavigationDrawer bind:visible marginTop="mt-16">
@@ -174,7 +174,7 @@ let dialogVisible = false;
     label="Nameol"
     bind:value={countrySelected}
     items={countries}
-    keywordsFunction={it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}
+    keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"
     labelFieldName="name"
     minCharactersToSearch={1}
       on:change={countryChanged}
