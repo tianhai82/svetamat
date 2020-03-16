@@ -19,14 +19,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "dependencyTreeRoots": [
       {
-        "name": "svelte-tailwind-material",
+        "name": "svetamat",
         "reference": "workspace:."
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.vscode\\/pnpify(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["svelte-tailwind-material", ["workspace:."]]
+      ["svetamat", ["workspace:."]]
     ],
     "locationBlacklistData": [
     ],
@@ -87,18 +87,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@fullhuman/postcss-purgecss", "npm:1.3.0"],
-            ["@rollup/plugin-commonjs", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:11.0.1"],
-            ["@rollup/plugin-node-resolve", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:7.0.0"],
+            ["@rollup/plugin-commonjs", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:11.0.1"],
+            ["@rollup/plugin-node-resolve", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
             ["autoprefixer", "npm:9.7.4"],
             ["postcss", "npm:7.0.26"],
             ["postcss-load-config", "npm:2.1.0"],
             ["rollup", "npm:1.31.0"],
-            ["rollup-plugin-livereload", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:1.0.4"],
-            ["rollup-plugin-svelte", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.1.1"],
-            ["rollup-plugin-terser", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.2.0"],
+            ["rollup-plugin-livereload", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:1.0.4"],
+            ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0"],
             ["sirv-cli", "npm:0.4.5"],
             ["svelte", "npm:3.18.1"],
-            ["svelte-preprocess", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:3.3.1"],
+            ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1"],
             ["tailwindcss", "npm:1.1.4"],
             ["tailwindcss-elevation", "npm:0.3.3"]
           ],
@@ -153,11 +153,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@rollup/plugin-commonjs", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:11.0.1", {
-          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-commonjs-virtual-2acbbcf6ce/0/cache/@rollup-plugin-commonjs-npm-11.0.1-958b3aceeb-1.zip/node_modules/@rollup/plugin-commonjs/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:11.0.1", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-commonjs-virtual-eb8a1e0195/0/cache/@rollup-plugin-commonjs-npm-11.0.1-958b3aceeb-1.zip/node_modules/@rollup/plugin-commonjs/",
           "packageDependencies": [
-            ["@rollup/plugin-commonjs", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:11.0.1"],
-            ["@rollup/pluginutils", "virtual:2acbbcf6cee7a4fe8d387131b9bf3d6758b4966ffb2ddeab3c71ed80df10d87589a43c858d60bf0465b2e4ddc39e8f2906761c4559b598ff062fed426e3945a8#npm:3.0.6"],
+            ["@rollup/plugin-commonjs", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:11.0.1"],
+            ["@rollup/pluginutils", "virtual:eb8a1e019557e492061dee658bc2349c94f150df5ef1e092e42dd80ef67713fc432557d56b0241f42fb99004dc4575ed33c10550e3894a8a0013a60ec3215ce1#npm:3.0.6"],
             ["estree-walker", "npm:0.6.1"],
             ["is-reference", "npm:1.1.4"],
             ["magic-string", "npm:0.25.6"],
@@ -171,11 +171,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@rollup/plugin-node-resolve", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:7.0.0", {
-          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-node-resolve-virtual-7126c8deb2/0/cache/@rollup-plugin-node-resolve-npm-7.0.0-4407c5af5a-1.zip/node_modules/@rollup/plugin-node-resolve/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-node-resolve-virtual-4e3d573070/0/cache/@rollup-plugin-node-resolve-npm-7.0.0-4407c5af5a-1.zip/node_modules/@rollup/plugin-node-resolve/",
           "packageDependencies": [
-            ["@rollup/plugin-node-resolve", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:7.0.0"],
-            ["@rollup/pluginutils", "virtual:2acbbcf6cee7a4fe8d387131b9bf3d6758b4966ffb2ddeab3c71ed80df10d87589a43c858d60bf0465b2e4ddc39e8f2906761c4559b598ff062fed426e3945a8#npm:3.0.6"],
+            ["@rollup/plugin-node-resolve", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
+            ["@rollup/pluginutils", "virtual:eb8a1e019557e492061dee658bc2349c94f150df5ef1e092e42dd80ef67713fc432557d56b0241f42fb99004dc4575ed33c10550e3894a8a0013a60ec3215ce1#npm:3.0.6"],
             ["@types/resolve", "npm:0.0.8"],
             ["builtin-modules", "npm:3.1.0"],
             ["is-module", "npm:1.0.0"],
@@ -189,10 +189,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@rollup/pluginutils", [
-        ["virtual:2acbbcf6cee7a4fe8d387131b9bf3d6758b4966ffb2ddeab3c71ed80df10d87589a43c858d60bf0465b2e4ddc39e8f2906761c4559b598ff062fed426e3945a8#npm:3.0.6", {
-          "packageLocation": "./.yarn/$$virtual/@rollup-pluginutils-virtual-76c3a9ee16/0/cache/@rollup-pluginutils-npm-3.0.6-476a626c4f-1.zip/node_modules/@rollup/pluginutils/",
+        ["virtual:eb8a1e019557e492061dee658bc2349c94f150df5ef1e092e42dd80ef67713fc432557d56b0241f42fb99004dc4575ed33c10550e3894a8a0013a60ec3215ce1#npm:3.0.6", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-pluginutils-virtual-4fcf4ad0c7/0/cache/@rollup-pluginutils-npm-3.0.6-476a626c4f-1.zip/node_modules/@rollup/pluginutils/",
           "packageDependencies": [
-            ["@rollup/pluginutils", "virtual:2acbbcf6cee7a4fe8d387131b9bf3d6758b4966ffb2ddeab3c71ed80df10d87589a43c858d60bf0465b2e4ddc39e8f2906761c4559b598ff062fed426e3945a8#npm:3.0.6"],
+            ["@rollup/pluginutils", "virtual:eb8a1e019557e492061dee658bc2349c94f150df5ef1e092e42dd80ef67713fc432557d56b0241f42fb99004dc4575ed33c10550e3894a8a0013a60ec3215ce1#npm:3.0.6"],
             ["estree-walker", "npm:1.0.1"],
             ["rollup", "npm:1.31.0"]
           ],
@@ -2999,10 +2999,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rollup-plugin-livereload", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:1.0.4", {
-          "packageLocation": "./.yarn/$$virtual/rollup-plugin-livereload-virtual-22fc2dee09/0/cache/rollup-plugin-livereload-npm-1.0.4-5e6593437e-1.zip/node_modules/rollup-plugin-livereload/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:1.0.4", {
+          "packageLocation": "./.yarn/$$virtual/rollup-plugin-livereload-virtual-f5a978fb46/0/cache/rollup-plugin-livereload-npm-1.0.4-5e6593437e-1.zip/node_modules/rollup-plugin-livereload/",
           "packageDependencies": [
-            ["rollup-plugin-livereload", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:1.0.4"],
+            ["rollup-plugin-livereload", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:1.0.4"],
             ["livereload", "npm:0.8.2"],
             ["rollup", "npm:1.31.0"]
           ],
@@ -3013,10 +3013,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rollup-plugin-svelte", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.1.1", {
-          "packageLocation": "./.yarn/$$virtual/rollup-plugin-svelte-virtual-fa918bf7cb/0/cache/rollup-plugin-svelte-npm-5.1.1-227d6d421b-1.zip/node_modules/rollup-plugin-svelte/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1", {
+          "packageLocation": "./.yarn/$$virtual/rollup-plugin-svelte-virtual-02fee31521/0/cache/rollup-plugin-svelte-npm-5.1.1-227d6d421b-1.zip/node_modules/rollup-plugin-svelte/",
           "packageDependencies": [
-            ["rollup-plugin-svelte", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.1.1"],
+            ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1"],
             ["require-relative", "npm:0.8.7"],
             ["rollup", "npm:1.31.0"],
             ["rollup-pluginutils", "npm:2.8.2"],
@@ -3031,10 +3031,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rollup-plugin-terser", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.2.0", {
-          "packageLocation": "./.yarn/$$virtual/rollup-plugin-terser-virtual-9b79cfe93b/0/cache/rollup-plugin-terser-npm-5.2.0-e1774fa2af-1.zip/node_modules/rollup-plugin-terser/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0", {
+          "packageLocation": "./.yarn/$$virtual/rollup-plugin-terser-virtual-cd11fb58bc/0/cache/rollup-plugin-terser-npm-5.2.0-e1774fa2af-1.zip/node_modules/rollup-plugin-terser/",
           "packageDependencies": [
-            ["rollup-plugin-terser", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.2.0"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0"],
             ["@babel/code-frame", "npm:7.8.3"],
             ["jest-worker", "npm:24.9.0"],
             ["rollup", "npm:1.31.0"],
@@ -3430,10 +3430,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["svelte-preprocess", [
-        ["virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:3.3.1", {
-          "packageLocation": "./.yarn/unplugged/svelte-preprocess-virtual-e763ea45cd/node_modules/svelte-preprocess/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1", {
+          "packageLocation": "./.yarn/unplugged/svelte-preprocess-virtual-3fd8a0e4dc/node_modules/svelte-preprocess/",
           "packageDependencies": [
-            ["svelte-preprocess", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:3.3.1"],
+            ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1"],
             ["@types/pug", "npm:2.0.4"],
             ["@types/sass", "npm:1.16.0"],
             ["detect-indent", "npm:6.0.0"],
@@ -3446,24 +3446,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"
         }]
       ]],
-      ["svelte-tailwind-material", [
+      ["svetamat", [
         ["workspace:.", {
           "packageLocation": "./",
           "packageDependencies": [
-            ["svelte-tailwind-material", "workspace:."],
+            ["svetamat", "workspace:."],
             ["@fullhuman/postcss-purgecss", "npm:1.3.0"],
-            ["@rollup/plugin-commonjs", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:11.0.1"],
-            ["@rollup/plugin-node-resolve", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:7.0.0"],
+            ["@rollup/plugin-commonjs", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:11.0.1"],
+            ["@rollup/plugin-node-resolve", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
             ["autoprefixer", "npm:9.7.4"],
             ["postcss", "npm:7.0.26"],
             ["postcss-load-config", "npm:2.1.0"],
             ["rollup", "npm:1.31.0"],
-            ["rollup-plugin-livereload", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:1.0.4"],
-            ["rollup-plugin-svelte", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.1.1"],
-            ["rollup-plugin-terser", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:5.2.0"],
+            ["rollup-plugin-livereload", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:1.0.4"],
+            ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0"],
             ["sirv-cli", "npm:0.4.5"],
             ["svelte", "npm:3.18.1"],
-            ["svelte-preprocess", "virtual:3d70b3a3ce54c823dcd9aa9e05ee38df7483b69318dca8cc22d58f8fd2395cfeb28970168b34b91be3e09e6274f5a16c474734066aecb9826d1074b2217aeb7a#npm:3.3.1"],
+            ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1"],
             ["tailwindcss", "npm:1.1.4"],
             ["tailwindcss-elevation", "npm:0.3.3"]
           ],
