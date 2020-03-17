@@ -43,7 +43,10 @@ function onInput(e) {
     filteredListItems = maxLen ? tempFiltered.slice(0, maxLen) : tempFiltered;
   }
 }
-$: if (typeof value === 'string') {
+
+$: if (value == null) {
+  setText('');
+} else if (typeof value === 'string') {
   setText(value || '');
 } else {
   setText(value[labelFieldName] || '');

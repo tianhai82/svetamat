@@ -117,6 +117,7 @@ let dialogVisible = false;
     Normal Button
   </Button>
   <Button textColor="text-orange-500" text>Normal Button</Button>
+  <Button on:click={()=> fruit = ''}>Clear Fruit</Button>
   <div>fruit: {fruit}</div>
   <Autocomplete
     borderColor="border-green-600"
@@ -177,32 +178,32 @@ let dialogVisible = false;
     keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"
     labelFieldName="name"
     minCharactersToSearch={1}
-      on:change={countryChanged}
-      outlined/>
+    on:change={countryChanged}
+    outlined/>
 
-    <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
-    <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
+  <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
+  <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
 
-    <Button textColor="text-white" bgColor="bg-orange-500" rounded>
-      Normal Button
-    </Button>
-    {name} {error}
-    <Input
-      outlined
-      borderColor="border-green-600"
-      labelColor="text-red-700"
-      label="b"
-      icon="search"
-      helperText={error}
-      helperTextColor="text-red-500"
-      bind:value={name}/>
-    <Input
-      outlined
-      borderColor="border-green-600"
-      labelColor="text-red-700"
-      label="Name"
-      icon="search"
-      helperText={error}
-      helperTextColor="text-red-500"
-      bind:value={name}/>
+  <Button textColor="text-white" bgColor="bg-orange-500" rounded>
+    Normal Button
+  </Button>
+  {name} {error}
+  <Input
+    outlined
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="b"
+    icon="search"
+    helperText={error}
+    helperTextColor="text-red-500"
+    bind:value={name}/>
+  <Input
+    outlined
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Name"
+    icon="search"
+    helperText={error}
+    helperTextColor="text-red-500"
+    bind:value={name}/>
 </div>
