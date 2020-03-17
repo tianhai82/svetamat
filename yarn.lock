@@ -2964,10 +2964,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.0.0":
-  version: 3.18.1
-  resolution: "svelte@npm:3.18.1"
-  checksum: ba99f4934a74a1fcc449ab0757d396cc4d7c58b73c3842c0133f0f16fd7eb096f54b99b65a94bfa7a1a08469e74cea35d887dc6a54fe69a60531533efc29b79a
+"svelte@npm:^3.20.1":
+  version: 3.20.1
+  resolution: "svelte@npm:3.20.1"
+  checksum: 8e6abe169eab888042060236b85b2bc597ef20f42228ee36c2abc1167eef5983ba6c447cc30c49bd0eb1df862d398eee8faaf259a220b68a87f79c8abca37890
   languageName: node
   linkType: hard
 
@@ -2986,7 +2986,7 @@ fsevents@^1.2.7:
     rollup-plugin-svelte: ^5.0.3
     rollup-plugin-terser: ^5.1.2
     sirv-cli: ^0.4.4
-    svelte: ^3.0.0
+    svelte: ^3.20.1
     svelte-preprocess: ^3.2.0-alpha.2
     tailwindcss: ^1.1.3
     tailwindcss-elevation: ^0.3.3

@@ -27,17 +27,19 @@ export let keywordsFunction = function (item) {
 };
 
 let filteredListItems = [];
-let text = '';
 let listVisible = false;
 let itemClicked = false;
 let icon;
 let highlightIndex = -1;
+let text = '';
 
 $: icon = listVisible ? 'arrow_drop_up' : 'arrow_drop_down';
-$: {
-  if (text.length >= minCharactersToSearch) {
+
+function onInput(e) {
+  const t = e.target.value;
+  if (t.length >= minCharactersToSearch) {
     const tempFiltered = items.filter(it => keywordsFunction(it)
-      .includes(text.toLowerCase()));
+      .includes(t.toLowerCase()));
     filteredListItems = maxLen ? tempFiltered.slice(0, maxLen) : tempFiltered;
   }
 }
@@ -91,6 +93,7 @@ function handleKeydown(e) {
 }
 
 function onFocus(e) {
+  filteredListItems = maxLen ? items.slice(0, maxLen) : items;
   listVisible = true;
   if (text) {
     e.target.selectionStart = 0;
@@ -112,11 +115,13 @@ function onBlur() {
 
 <div class="relative">
   <Input {outlined} icon="{icon}"
-         bind:value={text}
          {label} {labelColor} {borderColor} {helperText} {helperTextColor}
+         bind:value={text}
+         on:input="{onInput}"
          on:keydown={handleKeydown}
          on:blur={onBlur}
-         on:focus="{onFocus}"/>
+         on:focus="{onFocus}"
+  />
   <div style="max-height: 320px;"
        on:mouseenter={()=> itemClicked = true}
        on:mouseleave={()=> itemClicked = false}

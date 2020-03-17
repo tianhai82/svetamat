@@ -97,7 +97,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1"],
             ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0"],
             ["sirv-cli", "npm:0.4.5"],
-            ["svelte", "npm:3.18.1"],
+            ["svelte", "npm:3.20.1"],
             ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1"],
             ["tailwindcss", "npm:1.1.4"],
             ["tailwindcss-elevation", "npm:0.3.3"]
@@ -3021,7 +3021,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup", "npm:1.31.0"],
             ["rollup-pluginutils", "npm:2.8.2"],
             ["sourcemap-codec", "npm:1.4.8"],
-            ["svelte", "npm:3.18.1"]
+            ["svelte", "npm:3.20.1"]
           ],
           "packagePeers": [
             "rollup",
@@ -3421,10 +3421,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["svelte", [
-        ["npm:3.18.1", {
-          "packageLocation": "./.yarn/cache/svelte-npm-3.18.1-bbc09f6d16-1.zip/node_modules/svelte/",
+        ["npm:3.20.1", {
+          "packageLocation": "./.yarn/cache/svelte-npm-3.20.1-25f0718cc0-1.zip/node_modules/svelte/",
           "packageDependencies": [
-            ["svelte", "npm:3.18.1"]
+            ["svelte", "npm:3.20.1"]
           ],
           "linkType": "HARD"
         }]
@@ -3438,7 +3438,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/sass", "npm:1.16.0"],
             ["detect-indent", "npm:6.0.0"],
             ["strip-indent", "npm:2.0.0"],
-            ["svelte", "npm:3.18.1"]
+            ["svelte", "npm:3.20.1"]
           ],
           "packagePeers": [
             "svelte"
@@ -3462,7 +3462,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.1.1"],
             ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.0"],
             ["sirv-cli", "npm:0.4.5"],
-            ["svelte", "npm:3.18.1"],
+            ["svelte", "npm:3.20.1"],
             ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.3.1"],
             ["tailwindcss", "npm:1.1.4"],
             ["tailwindcss-elevation", "npm:0.3.3"]
