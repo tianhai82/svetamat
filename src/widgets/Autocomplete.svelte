@@ -56,6 +56,11 @@ function setText(v) {
   text = v;
 }
 
+function isItemSelected(item) {
+  if (value === item) return true;
+  return false;
+}
+
 function setVal(item) {
   itemClicked = false;
   listVisible = false;
@@ -115,7 +120,11 @@ function onBlur() {
   highlightIndex = -1;
 }
 </script>
-
+<style>
+  .active {
+    @apply bg-gray-300 font-medium;
+  }
+</style>
 <div class="relative">
   <Input {outlined} icon="{icon}"
          {label} {labelColor} {borderColor} {helperText} {helperTextColor}
@@ -135,6 +144,7 @@ function onBlur() {
         {#each filteredListItems as item,i}
           <li
             class="{`p-3 cursor-pointer hover:bg-gray-200 ${highlightIndex===i?'bg-gray-300':''}`}"
+            class:active={isItemSelected(item)}
             on:click|stopPropagation|preventDefault={setVal(item)}>{labelFieldName? item[labelFieldName]: item}</li>
         {/each}
       </ul>
