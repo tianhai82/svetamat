@@ -68,7 +68,6 @@ function isItemSelected(item) {
 }
 
 function setVal(item) {
-  console.log(item, value);
   itemClicked = false;
   listVisible = false;
   highlightIndex = -1;
