@@ -1,6 +1,7 @@
 <script>
 import Tailwindcss from './Tailwindcss.svelte';
 import Button from './widgets/Button.svelte';
+import Checkbox from './widgets/Checkbox.svelte';
 import Input from './widgets/Input.svelte';
 import Autocomplete from './widgets/Autocomplete.svelte';
 import NavigationDrawer from './widgets/NavigationDrawer.svelte';
@@ -78,6 +79,8 @@ let dialogVisible = false;
       on:click={() => (dialogVisible = !dialogVisible)}>
       Toggle
     </Button>
+    <Checkbox bind:checked="{visible}" color="text-red-800"
+              on:input={(e)=>console.log(e.target.checked)} label="show navi"></Checkbox>
   </div>
   <Progress/>
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
