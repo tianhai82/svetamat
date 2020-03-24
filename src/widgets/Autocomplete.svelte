@@ -23,7 +23,9 @@ export let keywordsFunction = function (item) {
   if (item === undefined || item === null) {
     return '';
   }
-  return keywordsFieldName ? item[keywordsFieldName].toLowerCase() : item.toLowerCase();
+  return keywordsFieldName ? item[keywordsFieldName].toString()
+    .toLowerCase() : item.toString()
+    .toLowerCase();
 };
 
 let filteredListItems = [];
@@ -48,8 +50,12 @@ $: if (value == null) {
   setText('');
 } else if (typeof value === 'string') {
   setText(value || '');
+} else if (typeof value === 'number') {
+  setText(value == null ? '' : value);
+} else if (typeof value === 'boolean') {
+  setText(value == null ? '' : value);
 } else {
-  setText(value[labelFieldName] || '');
+  setText(value[labelFieldName] == null ? '' : value[labelFieldName]);
 }
 
 function setText(v) {
@@ -62,12 +68,15 @@ function isItemSelected(item) {
 }
 
 function setVal(item) {
+  console.log(item, value);
   itemClicked = false;
   listVisible = false;
   highlightIndex = -1;
   if (value !== item) {
     value = item;
     dispatch('change', item);
+  } else {
+    onBlur();
   }
 }
 
@@ -105,7 +114,7 @@ function onFocus(e) {
   listVisible = true;
   if (text) {
     e.target.selectionStart = 0;
-    e.target.selectionEnd = text.length;
+    e.target.selectionEnd = text.toString().length;
   }
 }
 
@@ -114,6 +123,10 @@ function onBlur() {
   listVisible = false;
   if (typeof value === 'string') {
     text = value || '';
+  } else if (typeof value === 'number') {
+    text = value == null ? '' : value;
+  } else if (typeof value === 'boolean') {
+    text = value == null ? '' : value;
   } else {
     text = value[labelFieldName] || '';
   }
@@ -138,7 +151,7 @@ function onBlur() {
        on:mouseenter={()=> itemClicked = true}
        on:mouseleave={()=> itemClicked = false}
          class="{`absolute bg-white -mt-4 rounded-sm w-full elevation-4 z-10 overflow-y-auto ${listVisible
-         && text.length>=minCharactersToSearch ? '' : 'hidden'}`}">
+         && text.toString().length>=minCharactersToSearch ? '' : 'hidden'}`}">
     {#if filteredListItems.length>0}
       <ul class="my-2">
         {#each filteredListItems as item,i}

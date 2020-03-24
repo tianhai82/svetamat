@@ -41,7 +41,7 @@ function setLabelColor(prefix) {
 }
 
 let valueEmpty = false;
-$: valueEmpty = !value || value.length === 0;
+$: valueEmpty = value == null || value.toString().length === 0;
 
 $: if (hasFocus) {
   setLabelColor('absolute left-0 px-2 text-sm pointer-events-none');

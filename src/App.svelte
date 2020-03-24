@@ -31,6 +31,8 @@ function countryChanged(item) {
 
 let visible = false;
 let dialogVisible = false;
+let year = 2016;
+let boo;
 </script>
 
 <style>
@@ -83,6 +85,7 @@ let dialogVisible = false;
               on:input={(e)=>console.log(e.target.checked)} label="show navi"></Checkbox>
   </div>
   <Progress/>
+  <Progress/>
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
     Reset Slider Value
   </Button>
@@ -128,6 +131,20 @@ let dialogVisible = false;
     label="Nameol"
     bind:value={fruit}
     items={fruits}/>
+  <Autocomplete
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Numbers"
+    on:change={(e)=>console.log(e)}
+    bind:value={year}
+    items={[2016,2017,2018]}/>
+    <Autocomplete
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Booleans"
+    on:change={(e)=>console.log(e)}
+    bind:value={boo}
+    items={[true,false]}/>
   <Input
     borderColor="border-green-600"
     labelColor="text-red-700"
