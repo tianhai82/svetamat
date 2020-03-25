@@ -4,6 +4,7 @@ import InputOutlined from './InputOutlined.svelte';
 
 export let label = '';
 export let value = '';
+export let number = false;
 export let borderColor = 'border-blue-700';
 export let labelColor = 'text-blue-700';
 export let helperText = '';
@@ -30,12 +31,14 @@ $: if (hasFocus) {
 </script>
 {#if !outlined}
   <InputStd {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
+            {number}
             on:focus
             on:blur
             on:keydown
             {helperTextColor} on:input/>
 {:else}
   <InputOutlined {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
+                 {number}
                  on:focus
                  on:blur
                  on:keydown

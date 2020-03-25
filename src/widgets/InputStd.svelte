@@ -1,9 +1,13 @@
 <script>
 import { onMount } from 'svelte';
 import { tweened } from 'svelte/motion';
+import { createEventDispatcher } from 'svelte';
+
+const dispatch = createEventDispatcher();
 
 export let label = '';
 export let value = '';
+export let number = false;
 export let borderColor = 'border-blue-700';
 export let labelColor = 'text-blue-700';
 export let helperText = '';
@@ -20,6 +24,20 @@ onMount(() => {
 const y = tweened(1, {
   duration: 50,
 });
+
+let type = 'text';
+$: if (number) type = 'number';
+
+function handleInput(event) {
+  switch (type) {
+    case 'text':
+      value = event.target.value;
+      break;
+    case 'number':
+      value = +event.target.value;
+  }
+  dispatch('input', value);
+}
 
 $: labelTopPadding = `padding-top:${$y}rem;`;
 $: helperTextCls = `text-sm px-2 font-light h-5 ${helperTextColor}`;
@@ -59,9 +77,9 @@ $: if (hasFocus) {
     class={labelCls}>
     {label}
   </label>
-  <input type="text"
-         bind:value={value}
-         on:input
+  <input {type}
+         {value}
+         on:input={handleInput}
          on:focus="{() => hasFocus=true}"
          on:blur="{() => hasFocus=false}"
          on:focus

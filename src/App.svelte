@@ -16,7 +16,7 @@ let countrySelected = {};
 let error = '';
 let sliderValue = 10;
 let sliderValue2 = 10;
-$: if (name.trim().length === 0) {
+$: if (!name || name.trim().length === 0) {
   error = 'Please enter a name';
 } else {
   error = '';
@@ -24,6 +24,7 @@ $: if (name.trim().length === 0) {
 
 const fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
 let fruit = '';
+let num = 54.1
 
 function countryChanged(item) {
   console.log(item);
@@ -82,7 +83,9 @@ let boo;
       Toggle
     </Button>
     <Checkbox bind:checked="{visible}" color="text-red-800"
-              on:input={(e)=>console.log(e.target.checked)} label="show navi"></Checkbox>
+              on:input={(e)=>console.log(e.detail)} label="show navi"></Checkbox>
+    <Checkbox color="text-yellow-600" indeterminate
+              on:input={(e)=>console.log(e.detail)} label="indet"></Checkbox>
   </div>
   <Progress/>
   <Progress/>
@@ -137,93 +140,96 @@ let boo;
     label="Numbers"
     on:change={(e)=>console.log(e)}
     bind:value={year}
-    items={[2016,2017,2018]}/>
+      items={[2016,2017,2018]}/>
     <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Booleans"
-    on:change={(e)=>console.log(e)}
-    bind:value={boo}
-    items={[true,false]}/>
-  <Input
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Namewertyu uiou"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
-  <Button textColor="text-white" bgColor="bg-orange-500" rounded>
-    Normal Button
-  </Button>
-  {name} {error}
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Namewert"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Namewert Country here is very long"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
-  <Dialog bind:visible={dialogVisible} permanent>
-    <div class="p-6 bg-gray-100 w-64 rounded">
-      <div class="flex flex-col">
-        <div class="mb-4">Huat lah!!!</div>
-        <Button
-          on:click={() => (dialogVisible = false)}
-          outlined
-          outlineColor="border-green-600"
-          textColor="text-green-600">
-          Close
-        </Button>
-      </div>
-    </div>
-  </Dialog>
-  <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Nameol"
-    bind:value={countrySelected}
-    items={countries}
-    keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"
-    labelFieldName="name"
-    minCharactersToSearch={1}
-    on:change={countryChanged}
-    outlined/>
+      borderColor="border-green-600"
+      labelColor="text-red-700"
+      label="Booleans"
+      on:change={(e)=>console.log(e)}
+      bind:value={boo}
+        items={[true,false]}/>
+      <Input
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Namewertyu uiou"
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={name}/>
+      <Button textColor="text-white" bgColor="bg-orange-500" rounded>
+        Normal Button
+      </Button>
+      {name} {error}
+      <Input
+        outlined
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="number only"
+        number
+        on:input={(e)=>console.log(e)}
+        icon="search"
+        helperText={error}
+          helperTextColor="text-red-500"
+        bind:value={num}/>
+      {num}
+      <Input
+        outlined
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Namewert Country here is very long"
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={name}/>
+      <Dialog bind:visible={dialogVisible} permanent>
+        <div class="p-6 bg-gray-100 w-64 rounded">
+          <div class="flex flex-col">
+            <div class="mb-4">Huat lah!!!</div>
+            <Button
+              on:click={() => (dialogVisible = false)}
+              outlined
+              outlineColor="border-green-600"
+              textColor="text-green-600">
+              Close
+            </Button>
+          </div>
+        </div>
+      </Dialog>
+      <Autocomplete
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Nameol"
+        bind:value={countrySelected}
+        items={countries}
+        keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"
+        labelFieldName="name"
+        minCharactersToSearch={1}
+        on:change={countryChanged}
+        outlined/>
 
-  <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
-  <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
+      <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
+      <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
 
-  <Button textColor="text-white" bgColor="bg-orange-500" rounded>
-    Normal Button
-  </Button>
-  {name} {error}
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="b"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Name"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
+      <Button textColor="text-white" bgColor="bg-orange-500" rounded>
+        Normal Button
+      </Button>
+      {name} {error}
+      <Input
+        outlined
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="b"
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={name}/>
+      <Input
+        outlined
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Name"
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={name}/>
 </div>
