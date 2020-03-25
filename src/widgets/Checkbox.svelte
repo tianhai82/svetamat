@@ -25,12 +25,12 @@ function handleInput(e) {
 
 </style>
 
-<label class="h-12 flex items-center {color}" class:cursor-not-allowed={disabled}
+<label class="flex items-center {color}" class:cursor-not-allowed={disabled}
        class:cursor-pointer={!disabled} {disabled}>
   <input type="checkbox" bind:checked {disabled} on:change={handleChange}
          on:input={handleInput} hidden>
   <span
-    class="material-icons hover:rounded-full hover:bg-gray-300 hover:h-8 hover:w-8 flex w-8 items-center justify-center">
+    class="material-icons hover:rounded-full hover:bg-gray-300 hover:h-8 hover:w-8 w-8 h-8 flex items-center justify-center">
     {#if checked}
       check_box
     {:else if indeterminate}
