@@ -38,7 +38,7 @@ let text = '';
 $: icon = listVisible ? 'arrow_drop_up' : 'arrow_drop_down';
 
 function onInput(e) {
-  const t = e.target.value;
+  const t = e.detail;
   if (t.length >= minCharactersToSearch) {
     const tempFiltered = items.filter(it => keywordsFunction(it)
       .includes(t.toLowerCase()));
