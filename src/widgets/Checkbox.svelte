@@ -29,16 +29,18 @@ function handleInput(e) {
        class:cursor-pointer={!disabled} {disabled}>
   <input type="checkbox" bind:checked {disabled} on:change={handleChange}
          on:input={handleInput} hidden>
-  <span
-    class="material-icons hover:rounded-full hover:bg-gray-300 hover:h-8 hover:w-8 w-8 h-8 flex items-center justify-center">
-    {#if checked}
-      check_box
-    {:else if indeterminate}
-      indeterminate_check_box
-    {:else}
-      check_box_outline_blank
-    {/if}
-  </span>
+  <div
+    class="hover:rounded-full hover:bg-gray-300 w-8 h-8 flex items-center justify-center">
+    <span class="material-icons">
+      {#if checked}
+        check_box
+      {:else if indeterminate}
+        indeterminate_check_box
+      {:else}
+        check_box_outline_blank
+      {/if}
+    </span>
+  </div>
   {#if label}
     <span>{label}</span>
   {:else}

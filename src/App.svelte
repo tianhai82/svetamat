@@ -87,16 +87,19 @@ let boo;
     <Checkbox color="text-yellow-600" indeterminate
               on:input={(e)=>console.log(e.detail)} label="indet"></Checkbox>
   </div>
-  <table>
+  <table class="table-auto w-full h-full pb-5">
     <tr>
-      <td>
+      <td class="border px-2 py-1 items-center text-center">
         <Checkbox color="text-yellow-600" indeterminate
                   on:input={(e)=>console.log(e.detail)}></Checkbox>
       </td>
-      <td>
+      <td class="border px-2 py-1 items-center text-center">
         <Checkbox color="text-yellow-600" indeterminate
                   on:input={(e)=>console.log(e.detail)}>Test
         </Checkbox>
+      </td>
+      <td class="border px-2 py-1 text-center w-24">
+        a very long text from nethelands and the united states of America
       </td>
     </tr>
   </table>
