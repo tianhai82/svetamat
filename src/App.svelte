@@ -221,7 +221,7 @@ let v = '';
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
-    label="Nameol" clearable
+    label="Nameol"
     bind:value={countrySelected}
     items={countries}
     keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"

@@ -92,7 +92,7 @@ function clear() {
 </script>
 <div class="flex flex-col">
   <fieldset {disabled}
-    class="{fieldsetCls}" class:opacity-50={disabled}>
+            class="{fieldsetCls}" class:opacity-50={disabled}>
     <legend class="text-sm" style="{legendStyle}">&#8203</legend>
     <label
       bind:this={labelElement}
@@ -113,7 +113,7 @@ function clear() {
              class="h-8 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
       <div class="float-right flex items-center mr-2">
-        <i class="material-icons md-18 mr-2 cursor-pointer"
+        <i class="{disabled?'':'material-icons md-18 mr-2 cursor-pointer'}"
            class:hidden={!clearable || disabled}
            on:click={clear}>clear</i>
         <i class="{iconCls}" class:opacity-50={disabled}>{icon}</i>
