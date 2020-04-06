@@ -10,6 +10,8 @@ export let value = '';
 export let minCharactersToSearch = 0;
 export let noResultsText = 'No results found';
 export let maxLen = undefined;
+export let clearable = false;
+export let disabled = false;
 
 export let borderColor = 'border-gray-700';
 export let labelColor = 'text-gray-700';
@@ -120,7 +122,9 @@ function onFocus(e) {
 function onBlur() {
   if (itemClicked) return;
   listVisible = false;
-  if (typeof value === 'string') {
+  if (value == null) {
+    text = '';
+  } else if (typeof value === 'string') {
     text = value || '';
   } else if (typeof value === 'number') {
     text = value == null ? '' : value;
@@ -131,6 +135,11 @@ function onBlur() {
   }
   highlightIndex = -1;
 }
+
+function onClear() {
+  value = null;
+  text = '';
+}
 </script>
 <style>
   .active {
@@ -138,13 +147,14 @@ function onBlur() {
   }
 </style>
 <div class="relative">
-  <Input {outlined} icon="{icon}"
+  <Input {outlined} icon="{icon}" {clearable} {disabled}
          {label} {labelColor} {borderColor} {helperText} {helperTextColor}
          bind:value={text}
          on:input="{onInput}"
          on:keydown={handleKeydown}
          on:blur={onBlur}
          on:focus="{onFocus}"
+         on:clear={onClear}
   />
   <div style="max-height: 320px;"
        on:mouseenter={()=> itemClicked = true}

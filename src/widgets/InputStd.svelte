@@ -13,12 +13,14 @@ export let labelColor = 'text-blue-700';
 export let helperText = '';
 export let helperTextColor = '';
 export let icon = '';
+export let clearable = false;
+export let disabled = false;
 
 let hasFocus = false;
 let iconCls = '';
 
 onMount(() => {
-  iconCls = icon ? 'absolute right-0 top-0 mt-5 mr-2 material-icons md-18 pointer-events-none' : 'hidden';
+  iconCls = icon ? 'material-icons md-18 pointer-events-none' : 'hidden';
 });
 
 const y = tweened(1, {
@@ -66,28 +68,50 @@ $: if (hasFocus) {
     y.set(0.25);
   }
 }
-</script>
 
-<div
-  class="{hasFocus?
+function clear() {
+  value = '';
+  dispatch('clear');
+}
+</script>
+<style>
+  .disabled {
+    @apply border-b border-dashed;
+  }
+</style>
+
+<div class="flex flex-col">
+  <div
+    class:opacity-50={disabled}
+    class:disabled
+    class="{hasFocus?
   `relative rounded-t border-b-2 bg-gray-300 ${borderColor}`:
-  `relative rounded-t border-b border-gray-500 hover:border-gray-900 hover:bg-gray-100`}">
-  <label
-    style={labelTopPadding}
-    class={labelCls}>
-    {label}
-  </label>
-  <input {type}
-         {value}
-         on:input={handleInput}
-         on:focus="{() => hasFocus=true}"
-         on:blur="{() => hasFocus=false}"
-         on:focus
-         on:blur
-         on:keydown
-         style="{inputPadBottom}"
-         class="pt-6 appearance-none bg-transparent border-none w-full
+  `relative rounded-t border-b border-gray-500${disabled?
+  '':' hover:border-gray-900 hover:bg-gray-100'}`}">
+    <label
+      style={labelTopPadding}
+      class={labelCls}>
+      {label}
+    </label>
+    <div class="flex justify-between">
+      <input {type}
+             {value} {disabled}
+             on:input={handleInput}
+             on:focus="{() => hasFocus=true}"
+             on:blur="{() => hasFocus=false}"
+             on:focus
+             on:blur
+             on:keydown
+             style="{inputPadBottom}"
+             class="pt-6 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
-  <i class="{iconCls}">{icon}</i>
+      <div class="float-right flex items-center mr-2">
+        <i class="material-icons md-18 mr-2 cursor-pointer"
+           class:hidden={!clearable || disabled}
+           on:click={clear}>clear</i>
+        <i class="{iconCls}" class:opacity-50={disabled}>{icon}</i>
+      </div>
+    </div>
+  </div>
+  <div class={helperTextCls}>{helperText}</div>
 </div>
-<div class={helperTextCls}>{helperText}</div>

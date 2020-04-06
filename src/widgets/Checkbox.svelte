@@ -30,7 +30,7 @@ function handleInput(e) {
   <input type="checkbox" bind:checked {disabled} on:change={handleChange}
          on:input={handleInput} hidden>
   <div
-    class="rounded-full hover:bg-gray-300 w-8 h-8 flex items-center justify-center">
+    class="select-none rounded-full hover:bg-gray-300 w-8 h-8 flex items-center justify-center">
     <span class="material-icons">
       {#if checked}
         check_box

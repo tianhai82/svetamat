@@ -13,6 +13,8 @@ export let labelColor = 'text-blue-700';
 export let helperText = '';
 export let helperTextColor = '';
 export let icon = '';
+export let clearable = false;
+export let disabled = false;
 
 let hasFocus = false;
 let iconCls = '';
@@ -47,7 +49,7 @@ let legendStyle = '';
 let labelWidth;
 onMount(() => {
   labelWidth = labelElement.offsetWidth * 7 / 8 + 5;
-  iconCls = icon ? 'absolute right-0 bottom-0 pb-3 pr-2 material-icons md-18 pointer-events-none' : 'hidden';
+  iconCls = icon ? 'material-icons md-18 pointer-events-none' : 'hidden';
 });
 
 function setFieldSetColor(prefix) {
@@ -68,7 +70,9 @@ $: if (hasFocus) {
   legendStyle = `width:${labelWidth}px;margin-left:6px;`;
   inputPadBottom = 'margin-bottom:4px';
 } else {
-  fieldsetCls = 'relative rounded border border-gray-500 hover:border-gray-900';
+  if (!disabled) {
+    fieldsetCls = 'relative rounded border border-gray-500 hover:border-gray-900';
+  }
   inputPadBottom = 'margin-bottom:5px;';
   if (valueEmpty) {
     legendStyle = '';
@@ -80,27 +84,41 @@ $: if (hasFocus) {
     y.set(-1.2);
   }
 }
+
+function clear() {
+  value = '';
+  dispatch('clear');
+}
 </script>
-<fieldset
-  class="{fieldsetCls}">
-  <legend class="text-sm" style="{legendStyle}">&#8203</legend>
-  <label
-    bind:this={labelElement}
-    style={labelTopPadding}
-    class={labelCls}>
-    {label}
-  </label>
-  <input {type}
-         {value}
-         on:input={handleInput}
-         on:focus="{() => hasFocus=true}"
-         on:blur="{() => hasFocus=false}"
-         on:focus
-         on:blur
-         on:keydown
-         style="{inputPadBottom}"
-         class="h-8 appearance-none bg-transparent border-none w-full
+<div class="flex flex-col">
+  <fieldset {disabled}
+    class="{fieldsetCls}" class:opacity-50={disabled}>
+    <legend class="text-sm" style="{legendStyle}">&#8203</legend>
+    <label
+      bind:this={labelElement}
+      style={labelTopPadding}
+      class={labelCls}>
+      {label}
+    </label>
+    <div class="flex justify-between">
+      <input {type}
+             {value} {disabled}
+             on:input={handleInput}
+             on:focus="{() => hasFocus=true}"
+             on:blur="{() => hasFocus=false}"
+             on:focus
+             on:blur
+             on:keydown
+             style="{inputPadBottom}"
+             class="h-8 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
-  <i class="{iconCls}">{icon}</i>
-</fieldset>
-<div class={helperTextCls}>{helperText}</div>
+      <div class="float-right flex items-center mr-2">
+        <i class="material-icons md-18 mr-2 cursor-pointer"
+           class:hidden={!clearable || disabled}
+           on:click={clear}>clear</i>
+        <i class="{iconCls}" class:opacity-50={disabled}>{icon}</i>
+      </div>
+    </div>
+  </fieldset>
+  <div class={helperTextCls}>{helperText}</div>
+</div>

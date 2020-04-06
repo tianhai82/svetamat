@@ -23,7 +23,7 @@ $: if (!name || name.trim().length === 0) {
 }
 
 const fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
-let fruit = '';
+let fruit = 'APPLE';
 let num = 54.1;
 
 function countryChanged(item) {
@@ -34,6 +34,7 @@ let visible = false;
 let dialogVisible = false;
 let year = 2016;
 let boo;
+let v = '';
 </script>
 
 <style>
@@ -133,7 +134,8 @@ let boo;
   </div>
 
   <h1>
-    Hello {countrySelected.name ? countrySelected.name : 'No country selected'}!
+    Hello {countrySelected && countrySelected.name ? countrySelected.name : 'No country selected'}
+    !
   </h1>
   <Button textColor="text-white" bgColor="bg-orange-500">Normal Button</Button>
   <Button
@@ -145,11 +147,12 @@ let boo;
   </Button>
   <Button textColor="text-orange-500" text>Normal Button</Button>
   <Button on:click={()=> fruit = ''}>Clear Fruit</Button>
-  <div>fruit: {fruit}</div>
+  <div>fruit: {fruit?fruit:''}</div>
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Nameol"
+    clearable
     bind:value={fruit}
     items={fruits}></Autocomplete>
   <Autocomplete
@@ -160,6 +163,7 @@ let boo;
     bind:value={year}
       items={[2016,2017,2018]} ></Autocomplete>
   <Autocomplete
+    clearable
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Booleans"
@@ -167,13 +171,14 @@ let boo;
     bind:value={boo}
       items={[true,false]}></Autocomplete>
   <Input
+    clearable disabled
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Namewertyu uiou"
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"
-    bind:value={name}/>
+    bind:value={v}/>
   <Button textColor="text-white" bgColor="bg-orange-500" rounded>
     Normal Button
   </Button>
@@ -183,7 +188,7 @@ let boo;
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="number only"
-    number
+    number disabled
     on:input={(e)=>console.log(e)}
     icon="search"
     helperText={error}
@@ -191,7 +196,7 @@ let boo;
     bind:value={num}/>
   {num}
   <Input
-    outlined
+    outlined disabled
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Namewert Country here is very long"
@@ -216,7 +221,7 @@ let boo;
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
-    label="Nameol"
+    label="Nameol" clearable
     bind:value={countrySelected}
     items={countries}
     keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"

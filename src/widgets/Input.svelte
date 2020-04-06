@@ -11,37 +11,30 @@ export let helperText = '';
 export let helperTextColor = '';
 export let outlined = false;
 export let icon = '';
+export let clearable = false;
+export let disabled = false;
 
 let lblColor = labelColor;
 let hasFocus = false;
 let labelCls = 'absolute left-0 px-2 text-sm text-gray-600';
 let outlinedlabelCls = '';
 
-$: if (hasFocus) {
-
-} else {
-  if (value.length > 0) {
-
-  } else {
-
-  }
-}
-
-
 </script>
 {#if !outlined}
   <InputStd {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
-            {number}
+            {number} {clearable} {disabled}
             on:focus
             on:blur
             on:keydown
+            on:clear
             {helperTextColor} on:input/>
 {:else}
   <InputOutlined {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
-                 {number}
+                 {number} {clearable} {disabled}
                  on:focus
                  on:blur
                  on:keydown
+                 on:clear
                  {helperTextColor} on:input/>
 {/if}
 
