@@ -106,7 +106,7 @@ function clear() {
              class="pt-6 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
       <div class="float-right flex items-center mr-2">
-        <i class="{clearable?'material-icons md-18 mr-2 cursor-pointer':''}"
+        <i class="{clearable&&!disabled?'material-icons md-18 mr-2 cursor-pointer':''}"
            class:hidden={!clearable || disabled}
            on:click={clear}>clear</i>
         <i class="{iconCls}" class:opacity-50={disabled}>{icon}</i>
