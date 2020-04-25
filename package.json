@@ -4,6 +4,7 @@
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
+  "style": "dist/svetamat.css",
   "description": "Svelte Material Widgets styled using Tailwind",
   "repository": "github.com/tianhai82/svetamat",
   "author": "Tan Yin Loo",
