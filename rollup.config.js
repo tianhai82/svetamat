@@ -8,6 +8,7 @@ import pkg from './package.json';
 import rollup_start_dev from './rollup_start_dev';
 
 const production = !process.env.ROLLUP_WATCH;
+const bundleCss = production? 'dist/svetamat.css':'public/bundle.css';
 
 const name = pkg.name
   .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -43,7 +44,7 @@ export default {
       // we'll extract any component CSS out into
       // a separate file — better for performance
       css: css => {
-        css.write('public/bundle.css');
+        css.write(bundleCss);
       },
     }),
 
