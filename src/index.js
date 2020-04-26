@@ -1,3 +1,5 @@
+import './Tailwindcss.svelte';
+
 export { default as Autocomplete } from './widgets/Autocomplete.svelte';
 export { default as Button } from './widgets/Button.svelte';
 export { default as Dialog } from './widgets/Dialog.svelte';
