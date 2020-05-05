@@ -89,7 +89,6 @@ function clear() {
 }
 </script>
 <div class="flex flex-col">
-  {labelWidth}
   <fieldset {disabled}
             class="{fieldsetCls}" class:opacity-50={disabled}>
     <legend class="text-sm" style="{legendStyle}">&#8203</legend>
