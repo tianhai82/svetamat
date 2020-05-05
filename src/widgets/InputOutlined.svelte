@@ -41,14 +41,12 @@ $: labelTopPadding = `margin-top:${$y}rem;`;
 $: helperTextCls = `text-sm px-2 font-light h-5 ${helperTextColor}`;
 
 let fieldsetCls = 'relative rounded border border-gray-500';
-let labelCls = 'absolute left-0 px-2 text-gray-600 pointer-events-none';
+let labelCls = 'absolute left-0 mx-2 text-gray-600 pointer-events-none';
 let inputPadBottom = 'padding-bottom:8px';
 
-let labelElement;
 let legendStyle = '';
 let labelWidth;
 onMount(() => {
-  labelWidth = labelElement.offsetWidth * 7 / 8 + 5;
   iconCls = icon ? 'material-icons md-18 pointer-events-none' : 'hidden';
 });
 
@@ -64,10 +62,10 @@ let valueEmpty = false;
 $: valueEmpty = value == null || value.toString().length === 0;
 
 $: if (hasFocus) {
-  setLabelColor('absolute left-0 px-2 text-sm pointer-events-none');
+  setLabelColor('absolute left-0 mx-2 text-sm pointer-events-none');
   setFieldSetColor('relative rounded border-2');
   y.set(-1.2);
-  legendStyle = `width:${labelWidth}px;margin-left:6px;`;
+  legendStyle = `width:${labelWidth+4}px;margin-left:6px;`;
   inputPadBottom = 'margin-bottom:4px';
 } else {
   if (!disabled) {
@@ -79,8 +77,8 @@ $: if (hasFocus) {
     labelCls = 'absolute left-0 ml-2 pointer-events-none text-gray-600';
     y.set(0);
   } else {
-    labelCls = 'absolute left-0 px-2 text-sm pointer-events-none text-gray-600';
-    legendStyle = `width:${labelWidth}px;margin-left:6px;`;
+    labelCls = 'absolute left-0 mx-2 text-sm pointer-events-none text-gray-600';
+    legendStyle = `width:${labelWidth+4}px;margin-left:6px;`;
     y.set(-1.2);
   }
 }
@@ -91,11 +89,12 @@ function clear() {
 }
 </script>
 <div class="flex flex-col">
+  {labelWidth}
   <fieldset {disabled}
             class="{fieldsetCls}" class:opacity-50={disabled}>
     <legend class="text-sm" style="{legendStyle}">&#8203</legend>
     <label
-      bind:this={labelElement}
+      bind:clientWidth={labelWidth}
       style={labelTopPadding}
       class={labelCls}>
       {label}
