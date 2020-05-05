@@ -40,10 +40,6 @@ let v = '';
 const sectors = [
   { text: 'Finance' },
   { text: 'Healthcare' },
-  { text: 'Utilities' },
-  { text: 'Logistics' },
-  { text: 'Consumer Staples' },
-  { text: 'Consumer Discretionary' },
   {
     text: 'Energy',
     children: [
@@ -161,6 +157,23 @@ let sectorSelection = [];
   <Cascader outlined clearable label="Cascader Box" items="{sectors}"
             bind:value={sectorSelection}
             labelFieldName="text"></Cascader>
+  <Autocomplete
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Nameol"
+    clearable
+    bind:value={fruit}
+    items={fruits}></Autocomplete>
+  <Cascader outlined clearable label="Cascader Box" items="{sectors}"
+            bind:value={sectorSelection}
+            labelFieldName="text"></Cascader>
+  <Autocomplete
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Nameol"
+    clearable
+    bind:value={fruit}
+    items={fruits}></Autocomplete>
   <Progress/>
   <Progress/>
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
@@ -203,13 +216,7 @@ let sectorSelection = [];
   <Button textColor="text-orange-500" text>Normal Button</Button>
   <Button on:click={()=> fruit = ''}>Clear Fruit</Button>
   <div>fruit: {fruit?fruit:''}</div>
-  <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Nameol"
-    clearable
-    bind:value={fruit}
-    items={fruits}></Autocomplete>
+
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"

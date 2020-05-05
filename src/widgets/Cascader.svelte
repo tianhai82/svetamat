@@ -47,6 +47,21 @@ function onFocus(e) {
   }
 }
 
+$: if (value) {
+  setText();
+  layers = [[...items]];
+  let tempList = items;
+  for (let i = 0; i < value.length; i++) {
+    const item = tempList.find(it => it[keywordsFieldName] === value[i]);
+    if (item && item.children && item.children.length > 0) {
+      layers = [...layers, [...item.children]];
+      tempList = item.children;
+    } else {
+      break;
+    }
+  }
+}
+
 function onClear() {
   listVisible = false;
   searching = false;
@@ -147,24 +162,37 @@ $: isItemSelected = (item, i) => {
   }
   return false;
 };
+
+function onBlur() {
+  if (mouseover) return;
+  listVisible = false;
+  setText();
+}
+
+let mouseover;
 </script>
 <style>
   .active {
     @apply bg-gray-300 font-medium;
   }
 </style>
-<div class="relative z-20">
-  <Input {outlined} icon="{icon}" {clearable} {disabled}
-         {label} {labelColor} {borderColor} {helperText} {helperTextColor}
-         bind:value={text}
-         on:input="{onInput}"
-         on:keydown
-         on:blur={setText}
-         on:focus="{onFocus}"
-         on:clear={onClear}
-  />
-  <div
-    class="{`absolute bg-white -mt-4 rounded-sm elevation-4 ${listVisible? '' : 'hidden'}`}">
+<div class="relative">
+  <div class="relative z-20">
+    <Input {outlined} icon="{icon}" {clearable} {disabled}
+           {label} {labelColor} {borderColor} {helperText} {helperTextColor}
+           bind:value={text}
+           on:input="{onInput}"
+           on:keydown
+           on:blur={onBlur}
+           on:focus="{onFocus}"
+           on:clear={onClear}
+    />
+  </div>
+  <div tabindex="0"
+    on:blur={onBlur}
+    on:mouseenter={()=> mouseover = true}
+    on:mouseleave={()=> mouseover = false}
+      class="{`focus:outline-none absolute z-30 bg-white -mt-4 rounded-sm elevation-4 ${listVisible? '' : 'hidden'}`}">
     {#if items.length>0 && flattenList.length === 0 && !searching}
       <div class="flex">
         {#each
@@ -201,9 +229,9 @@ $: isItemSelected = (item, i) => {
     {/if}
   </div>
 </div>
-{#if listVisible}
-  <div
-    on:click={() => (listVisible = false)}
-    tabindex="-1"
-    class="z-10 fixed focus:outline-none inset-0 h-full w-full cursor-default"/>
-{/if}
+<!--{#if listVisible}-->
+<!--  <div-->
+<!--    on:click={() => (listVisible = false)}-->
+<!--    tabindex="-1"-->
+<!--    class="bg-red-400 opacity-75 z-10 fixed focus:outline-none inset-0 h-full w-full cursor-default"></div>-->
+<!--{/if}-->
