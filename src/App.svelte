@@ -10,6 +10,7 @@ import Slider from './widgets/Slider.svelte';
 import { countries } from './countries';
 import Spinner from './widgets/Spinner.svelte';
 import Progress from './widgets/Progress.svelte';
+import Cascader from './widgets/Cascader.svelte';
 
 export let name = '';
 let countrySelected = {};
@@ -35,6 +36,57 @@ let dialogVisible = false;
 let year = 2016;
 let boo;
 let v = '';
+
+const sectors = [
+  { text: 'Finance' },
+  { text: 'Healthcare' },
+  { text: 'Utilities' },
+  { text: 'Logistics' },
+  { text: 'Consumer Staples' },
+  { text: 'Consumer Discretionary' },
+  {
+    text: 'Energy',
+    children: [
+      {
+        text: 'Oil & Gas',
+        children: [
+          {
+            text: 'Oil',
+          }, {
+            text: 'Gas',
+          },
+        ],
+      }, {
+        text: 'Natural Gas',
+      },
+    ],
+  },
+  {
+    text: 'Information Technology',
+    children: [
+      {
+        text: 'Software',
+        children: [
+          {
+            text: 'C++',
+          }, {
+            text: 'Python',
+          },
+        ],
+      }, {
+        text: 'Hardware',
+        children: [
+          {
+            text: 'Network Equipment',
+          }, {
+            text: 'Silicon Chips',
+          },
+        ],
+      },
+    ],
+  },
+];
+let sectorSelection = [];
 </script>
 
 <style>
@@ -105,7 +157,10 @@ let v = '';
     </tr>
   </table>
 
-
+  {sectorSelection}
+  <Cascader outlined clearable label="Cascader Box" items="{sectors}"
+            bind:value={sectorSelection}
+            labelFieldName="text"></Cascader>
   <Progress/>
   <Progress/>
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
@@ -236,9 +291,17 @@ let v = '';
   <Button textColor="text-white" bgColor="bg-orange-500" rounded>
     Normal Button
   </Button>
-  {name} {error}
   <Input
     outlined
+    borderColor="border-green-600"
+    labelColor="text-red-700"
+    label="Name"
+    icon="search"
+    helperText={error}
+    helperTextColor="text-red-500"
+    bind:value={name}/>
+  {name} {error}
+  <Input
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="b"

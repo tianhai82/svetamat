@@ -42,7 +42,6 @@ $: helperTextCls = `text-sm px-2 font-light h-5 ${helperTextColor}`;
 
 let fieldsetCls = 'relative rounded border border-gray-500';
 let labelCls = 'absolute left-0 mx-2 text-gray-600 pointer-events-none';
-let inputPadBottom = 'padding-bottom:8px';
 
 let legendStyle = '';
 let labelWidth;
@@ -66,12 +65,10 @@ $: if (hasFocus) {
   setFieldSetColor('relative rounded border-2');
   y.set(-1.2);
   legendStyle = `width:${labelWidth+4}px;margin-left:6px;`;
-  inputPadBottom = 'margin-bottom:4px';
 } else {
   if (!disabled) {
     fieldsetCls = 'relative rounded border border-gray-500 hover:border-gray-900';
   }
-  inputPadBottom = 'margin-bottom:5px;';
   if (valueEmpty) {
     legendStyle = '';
     labelCls = 'absolute left-0 ml-2 pointer-events-none text-gray-600';
@@ -89,7 +86,7 @@ function clear() {
 }
 </script>
 <div class="flex flex-col">
-  <fieldset {disabled}
+  <fieldset {disabled} style="height:59px;"
             class="{fieldsetCls}" class:opacity-50={disabled}>
     <legend class="text-sm" style="{legendStyle}">&#8203</legend>
     <label
@@ -107,7 +104,6 @@ function clear() {
              on:focus
              on:blur
              on:keydown
-             style="{inputPadBottom}"
              class="h-8 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
       <div class="float-right flex items-center mr-2">
