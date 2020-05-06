@@ -305,6 +305,10 @@ let disabled = true;
   <Button textColor="text-white" bgColor="bg-orange-500" rounded>
     Normal Button
   </Button>
+  <Button textColor="text-orange-500" outlineColor="border-orange-500" disabled outlined
+          on:click={()=>console.log('clicked')}>
+    Normal Button
+  </Button>
   <Input
     outlined
     borderColor="border-green-600"
