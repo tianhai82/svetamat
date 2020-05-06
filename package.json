@@ -1,6 +1,6 @@
 {
   "name": "svetamat",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
