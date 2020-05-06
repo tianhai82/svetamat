@@ -17,14 +17,11 @@ export let bgColor = 'bg-transparent';
 let cls = 'focus:outline-none uppercase tracking-wide ripple';
 
 if (outlined) {
-  const hover = disabled ? '' : 'hover:elevation-1';
-  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor} ${hover} active:elevation-0`;
+  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor} active:elevation-0`;
 } else if (text) {
-  const hover = disabled ? '' : 'hover:elevation-1';
-  cls += ` ${textColor} ${bgColor} ${hover} active:elevation-0`;
+  cls += ` ${textColor} ${bgColor} active:elevation-0`;
 } else {
-  const hover = disabled ? '' : 'hover:elevation-4';
-  cls += ` elevation-2 ${hover} active:elevation-0 ${textColor} ${bgColor}`;
+  cls += ` elevation-2 active:elevation-0 ${textColor} ${bgColor}`;
 }
 if (rounded) {
   cls += ' rounded-full';
@@ -40,10 +37,6 @@ if (block) {
   cls += ' block w-full';
 }
 
-if (disabled) {
-  cls += ' opacity-25 cursor-not-allowed';
-}
-
 if (xs) {
   cls += ' h-5 text-xs px-2';
 } else if (sm) {
@@ -57,7 +50,22 @@ if (xs) {
 }
 
 cls = cls.trim();
+
+let disabledCls;
+$: if (disabled) {
+  disabledCls = 'opacity-25 cursor-not-allowed';
+} else {
+  let hover;
+  if (outlined) {
+    hover = 'hover:elevation-1';
+  } else if (text) {
+    hover = 'hover:elevation-1';
+  } else {
+    hover = 'hover:elevation-4';
+  }
+  disabledCls = ` ${hover}`;
+}
 </script>
-<button class={cls} {disabled} on:click>
+<button class={`${cls} ${disabledCls}`} {disabled} on:click>
   <slot></slot>
 </button>

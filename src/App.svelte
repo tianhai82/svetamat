@@ -302,12 +302,13 @@ let disabled = true;
   <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
   <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
 
-  <Button textColor="text-white" bgColor="bg-orange-500" rounded>
-    Normal Button
+  <Button textColor="text-white" bgColor="bg-orange-500" rounded
+          on:click={()=>disabled=!disabled}>
+    Enable/Disable Button
   </Button>
-  <Button textColor="text-orange-500" outlineColor="border-orange-500" disabled outlined
+  <Button textColor="text-orange-500" outlineColor="border-orange-500" {disabled} outlined
           on:click={()=>console.log('clicked')}>
-    Normal Button
+    Disabled Button
   </Button>
   <Input
     outlined
