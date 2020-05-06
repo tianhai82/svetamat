@@ -37,11 +37,11 @@ function handleInput(event) {
   dispatch('input', value);
 }
 
-$: labelTopPadding = `margin-top:${$y}rem;`;
+$: labelTranslateStyle = `transform:translateY(${$y}rem);`;
 $: helperTextCls = `text-sm px-2 font-light h-5 ${helperTextColor}`;
 
-let fieldsetCls = 'relative rounded border border-gray-500';
-let labelCls = 'absolute left-0 mx-2 text-gray-600 pointer-events-none';
+let fieldsetCls = 'border border-gray-500';
+let labelCls = 'text-gray-600 ';
 
 let legendStyle = '';
 let labelWidth;
@@ -49,34 +49,47 @@ onMount(() => {
   iconCls = icon ? 'material-icons md-18 pointer-events-none' : 'hidden';
 });
 
-function setFieldSetColor(prefix) {
-  fieldsetCls = `${prefix} ${borderColor}`;
+function setFocusState() {
+  labelCls = `text-sm ${labelColor} `;
+  y.set(-1.35);
+  fieldsetCls = `border-2 ${borderColor} `;
 }
 
-function setLabelColor(prefix) {
-  labelCls = `${prefix} ${labelColor}`;
+function setFieldsetCls(cls) {
+  fieldsetCls = cls + ' ';
 }
 
-let valueEmpty = false;
-$: valueEmpty = value == null || value.toString().length === 0;
+function setLabelCls(cls) {
+  labelCls = cls + ' ';
+}
+
+function setLegendStyle(style) {
+  legendStyle = style;
+}
+
+$: if (labelWidth) {
+  if (!hasFocus && (value == null || value.toString().length === 0)) {
+    setLegendStyle('');
+  } else {
+    setLegendStyle(`width:${labelWidth + 4}px;margin-left:6px;`);
+  }
+}
+
 
 $: if (hasFocus) {
-  setLabelColor('absolute left-0 mx-2 text-sm pointer-events-none');
-  setFieldSetColor('relative rounded border-2');
-  y.set(-1.2);
-  legendStyle = `width:${labelWidth+4}px;margin-left:6px;`;
+  setFocusState();
 } else {
   if (!disabled) {
-    fieldsetCls = 'relative rounded border border-gray-500 hover:border-gray-900';
-  }
-  if (valueEmpty) {
-    legendStyle = '';
-    labelCls = 'absolute left-0 ml-2 pointer-events-none text-gray-600';
-    y.set(0);
+    setFieldsetCls('border border-gray-500 hover:border-gray-900');
   } else {
-    labelCls = 'absolute left-0 mx-2 text-sm pointer-events-none text-gray-600';
-    legendStyle = `width:${labelWidth+4}px;margin-left:6px;`;
-    y.set(-1.2);
+    setFieldsetCls('border');
+  }
+  if (value == null || value.toString().length === 0) {
+    setLabelCls('text-gray-600');
+    y.set(-0.15);
+  } else {
+    setLabelCls('text-sm text-gray-600');
+    y.set(-1.35);
   }
 }
 
@@ -87,12 +100,12 @@ function clear() {
 </script>
 <div class="flex flex-col">
   <fieldset {disabled} style="height:59px;"
-            class="{fieldsetCls}" class:opacity-50={disabled}>
-    <legend class="text-sm" style="{legendStyle}">&#8203</legend>
+            class="{`${fieldsetCls}relative rounded`}" class:opacity-50={disabled}>
+    <legend style="{legendStyle}">&#8203</legend>
     <label
       bind:clientWidth={labelWidth}
-      style={labelTopPadding}
-      class={labelCls}>
+      style={labelTranslateStyle}
+      class={`${labelCls}absolute left-0 mx-2 pointer-events-none`}>
       {label}
     </label>
     <div class="flex justify-between">

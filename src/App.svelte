@@ -83,6 +83,7 @@ const sectors = [
   },
 ];
 let sectorSelection = [];
+let disabled = true;
 </script>
 
 <style>
@@ -130,6 +131,12 @@ let sectorSelection = [];
       textColor="text-gray-900"
       on:click={() => (dialogVisible = !dialogVisible)}>
       Toggle
+    </Button>
+    <Button
+      text
+      textColor="text-gray-900"
+      on:click={() => (disabled = !disabled)}>
+      Disabled
     </Button>
     <Checkbox bind:checked="{visible}" color="text-red-800"
               on:input={(e)=>console.log(e.detail)} label="show navi"></Checkbox>
@@ -233,7 +240,7 @@ let sectorSelection = [];
     bind:value={boo}
       items={[true,false]}></Autocomplete>
   <Input
-    clearable disabled
+    clearable {disabled}
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Namewertyu uiou"
@@ -250,7 +257,7 @@ let sectorSelection = [];
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="number only"
-    number disabled
+    number {disabled}
     on:input={(e)=>console.log(e)}
     icon="search"
     helperText={error}
@@ -258,7 +265,7 @@ let sectorSelection = [];
     bind:value={num}/>
   {num}
   <Input
-    outlined disabled
+    outlined {disabled}
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Namewert Country here is very long"
@@ -320,7 +327,7 @@ let sectorSelection = [];
     outlined
     borderColor="border-green-600"
     labelColor="text-red-700"
-    label="Name"
+    label="Name2"
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"

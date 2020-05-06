@@ -197,7 +197,7 @@ let mouseover;
       <div class="flex">
         {#each
         layers as items,i }
-          <ul style="max-height: 320px;"
+          <ul style="max-height: 320px;min-width:120px;"
               class="flex flex-col border-r my-2 overflow-y-auto">
             {#each items as item}
               <li
