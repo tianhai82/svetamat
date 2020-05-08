@@ -117,6 +117,7 @@ function clear() {
              on:focus
              on:blur
              on:keydown
+             style="padding-bottom: 3px;"
              class="h-8 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>
       <div class="float-right flex items-center mr-2">
