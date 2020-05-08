@@ -14,14 +14,14 @@ export let textColor = 'text-black';
 export let outlineColor = 'border-black';
 export let bgColor = 'bg-transparent';
 
-let cls = 'focus:outline-none uppercase tracking-wide ripple';
+let cls = 'focus:outline-none uppercase tracking-wide';
 
 if (outlined) {
-  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor} active:elevation-0`;
+  cls += ` border border-solid ${textColor} ${outlineColor} ${bgColor}`;
 } else if (text) {
-  cls += ` ${textColor} ${bgColor} active:elevation-0`;
+  cls += ` ${textColor} ${bgColor}`;
 } else {
-  cls += ` elevation-2 active:elevation-0 ${textColor} ${bgColor}`;
+  cls += ` elevation-2 ${textColor} ${bgColor}`;
 }
 if (rounded) {
   cls += ' rounded-full';
@@ -63,7 +63,7 @@ $: if (disabled) {
   } else {
     hover = 'hover:elevation-4';
   }
-  disabledCls = ` ${hover}`;
+  disabledCls = `${hover} active:elevation-0 ripple`;
 }
 </script>
 <button class={`${cls} ${disabledCls}`} {disabled} on:click>

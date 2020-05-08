@@ -306,9 +306,9 @@ let disabled = true;
           on:click={()=>disabled=!disabled}>
     Enable/Disable Button
   </Button>
-  <Button textColor="text-orange-500" outlineColor="border-orange-500" {disabled} outlined
+  <Button bgColor="bg-orange-500" textColor="text-white" {disabled}
           on:click={()=>console.log('clicked')}>
-    Disabled Button
+    <div>Disabled Button</div>
   </Button>
   <Input
     outlined
