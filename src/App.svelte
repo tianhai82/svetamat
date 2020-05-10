@@ -1,89 +1,94 @@
 <script>
-import Tailwindcss from './Tailwindcss.svelte';
-import Button from './widgets/Button.svelte';
-import Checkbox from './widgets/Checkbox.svelte';
-import Input from './widgets/Input.svelte';
-import Autocomplete from './widgets/Autocomplete.svelte';
-import NavigationDrawer from './widgets/NavigationDrawer.svelte';
-import Dialog from './widgets/Dialog.svelte';
-import Slider from './widgets/Slider.svelte';
-import { countries } from './countries';
-import Spinner from './widgets/Spinner.svelte';
-import Progress from './widgets/Progress.svelte';
-import Cascader from './widgets/Cascader.svelte';
+  import Tailwindcss from "./Tailwindcss.svelte";
+  import Button from "./widgets/Button.svelte";
+  import Checkbox from "./widgets/Checkbox.svelte";
+  import Input from "./widgets/Input.svelte";
+  import Autocomplete from "./widgets/Autocomplete.svelte";
+  import NavigationDrawer from "./widgets/NavigationDrawer.svelte";
+  import Dialog from "./widgets/Dialog.svelte";
+  import Slider from "./widgets/Slider.svelte";
+  import { countries } from "./countries";
+  import Spinner from "./widgets/Spinner.svelte";
+  import Progress from "./widgets/Progress.svelte";
+  import Cascader from "./widgets/Cascader.svelte";
 
-export let name = '';
-let countrySelected = {};
-let error = '';
-let sliderValue = 10;
-let sliderValue2 = 10;
-$: if (!name || name.trim().length === 0) {
-  error = 'Please enter a name';
-} else {
-  error = '';
-}
+  export let name = "";
+  let countrySelected = {};
+  let error = "";
+  let sliderValue = 10;
+  let sliderValue2 = 10;
+  $: if (!name || name.trim().length === 0) {
+    error = "Please enter a name";
+  } else {
+    error = "";
+  }
 
-const fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
-let fruit = 'APPLE';
-let num = 54.1;
+  const fruits = ["APPLE", "ORANGE", "PEAR", "STRAWBERRY"];
+  let fruit = "APPLE";
+  let num = 54.1;
 
-function countryChanged(item) {
-  console.log(item);
-}
+  function countryChanged(item) {
+    console.log(item);
+  }
 
-let visible = false;
-let dialogVisible = false;
-let year = 2016;
-let boo;
-let v = '';
+  let visible = false;
+  let dialogVisible = false;
+  let year = 2016;
+  let boo;
+  let v = "";
 
-const sectors = [
-  { text: 'Finance' },
-  { text: 'Healthcare' },
-  {
-    text: 'Energy',
-    children: [
-      {
-        text: 'Oil & Gas',
-        children: [
-          {
-            text: 'Oil',
-          }, {
-            text: 'Gas',
-          },
-        ],
-      }, {
-        text: 'Natural Gas',
-      },
-    ],
-  },
-  {
-    text: 'Information Technology',
-    children: [
-      {
-        text: 'Software',
-        children: [
-          {
-            text: 'C++',
-          }, {
-            text: 'Python',
-          },
-        ],
-      }, {
-        text: 'Hardware',
-        children: [
-          {
-            text: 'Network Equipment',
-          }, {
-            text: 'Silicon Chips',
-          },
-        ],
-      },
-    ],
-  },
-];
-let sectorSelection = [];
-let disabled = true;
+  const sectors = [
+    { text: "Finance" },
+    { text: "Healthcare" },
+    {
+      text: "Energy",
+      children: [
+        {
+          text: "Oil & Gas",
+          children: [
+            {
+              text: "Oil"
+            },
+            {
+              text: "Gas"
+            }
+          ]
+        },
+        {
+          text: "Natural Gas"
+        }
+      ]
+    },
+    {
+      text: "Information Technology",
+      children: [
+        {
+          text: "Software",
+          children: [
+            {
+              text: "C++"
+            },
+            {
+              text: "Python"
+            }
+          ]
+        },
+        {
+          text: "Hardware",
+          children: [
+            {
+              text: "Network Equipment"
+            },
+            {
+              text: "Silicon Chips"
+            }
+          ]
+        }
+      ]
+    }
+  ];
+  let sectorSelection = [];
+  let disabled = true;
 </script>
 
 <style>
@@ -92,7 +97,7 @@ let disabled = true;
   }
 </style>
 
-<Tailwindcss/>
+<Tailwindcss />
 <div
   class="bg-pink-100 fixed left-0 right-0 top-0 h-16 mt-0 z-10 flex items-center
   justify-between elevation-4">
@@ -113,19 +118,21 @@ let disabled = true;
         Menu
       </h3>
       <ul class="">
-        <li on:click|preventDefault
-            class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
+        <li
+          on:click|preventDefault
+          class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
           Stock Analysis
         </li>
-        <li on:click|preventDefault
-            class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
+        <li
+          on:click|preventDefault
+          class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
           Subscriptions
         </li>
       </ul>
     </div>
   </NavigationDrawer>
   <div class="flex flex-row-reverse">
-    <Spinner/>
+    <Spinner />
     <Button
       text
       textColor="text-gray-900"
@@ -138,20 +145,31 @@ let disabled = true;
       on:click={() => (disabled = !disabled)}>
       Disabled
     </Button>
-    <Checkbox bind:checked="{visible}" color="text-red-800"
-              on:input={(e)=>console.log(e.detail)} label="show navi"></Checkbox>
-    <Checkbox color="text-yellow-600" indeterminate
-              on:input={(e)=>console.log(e.detail)} label="indet"></Checkbox>
+    <Checkbox
+      bind:checked={visible}
+      color="text-red-800"
+      on:input={e => console.log(e.detail)}
+      label="show navi" />
+    <Checkbox
+      color="text-yellow-600"
+      indeterminate
+      on:input={e => console.log(e.detail)}
+      label="indet" />
   </div>
   <table class="table-auto w-full h-full pb-5">
     <tr>
       <td class="border px-2 py-1 items-center text-center">
-        <Checkbox color="text-yellow-600" indeterminate
-                  on:input={(e)=>console.log(e.detail)}></Checkbox>
+        <Checkbox
+          color="text-yellow-600"
+          indeterminate
+          on:input={e => console.log(e.detail)} />
       </td>
       <td class="border px-2 py-1 items-center text-center">
-        <Checkbox color="text-yellow-600" indeterminate
-                  on:input={(e)=>console.log(e.detail)}>Test
+        <Checkbox
+          color="text-yellow-600"
+          indeterminate
+          on:input={e => console.log(e.detail)}>
+          Test
         </Checkbox>
       </td>
       <td class="border px-2 py-1 text-center w-24">
@@ -159,37 +177,44 @@ let disabled = true;
       </td>
     </tr>
   </table>
-
   {sectorSelection}
-  <Cascader outlined clearable label="Cascader Box" items="{sectors}"
-            bind:value={sectorSelection}
-            labelFieldName="text"></Cascader>
+  <Cascader
+    outlined
+    clearable
+    label="Cascader Box"
+    items={sectors}
+    bind:value={sectorSelection}
+    labelFieldName="text" />
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Nameol"
     clearable
     bind:value={fruit}
-    items={fruits}></Autocomplete>
-  <Cascader outlined clearable label="Cascader Box" items="{sectors}"
-            bind:value={sectorSelection}
-            labelFieldName="text"></Cascader>
+    items={fruits} />
+  <Cascader
+    outlined
+    clearable
+    label="Cascader Box"
+    items={sectors}
+    bind:value={sectorSelection}
+    labelFieldName="text" />
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Nameol"
     clearable
     bind:value={fruit}
-    items={fruits}></Autocomplete>
-  <Progress/>
-  <Progress/>
+    items={fruits} />
+  <Progress />
+  <Progress />
   <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
     Reset Slider Value
   </Button>
   <div>
 
-    <input type="range" min="9" max="20" class="w-full mb-5">
-    <input type="range" min="9" max="20" class="w-full">
+    <input type="range" min="9" max="20" class="w-full mb-5" />
+    <input type="range" min="9" max="20" class="w-full" />
 
     <Slider
       min={9}
@@ -197,15 +222,15 @@ let disabled = true;
       bind:value={sliderValue}
       thumbColor="text-red-600"
       trackEmptyColor="bg-red-200"
-      trackFilledColor="bg-red-600"/>
-    {sliderValue}    {sliderValue2}
+      trackFilledColor="bg-red-600" />
+    {sliderValue} {sliderValue2}
     <Slider
       min={9}
       max={11}
       bind:value={sliderValue2}
       thumbColor="text-red-600"
       trackEmptyColor="bg-red-200"
-      trackFilledColor="bg-red-600"/>
+      trackFilledColor="bg-red-600" />
   </div>
 
   <h1>
@@ -221,58 +246,64 @@ let disabled = true;
     Normal Button
   </Button>
   <Button textColor="text-orange-500" text>Normal Button</Button>
-  <Button on:click={()=> fruit = ''}>Clear Fruit</Button>
-  <div>fruit: {fruit?fruit:''}</div>
+  <Button on:click={() => (fruit = '')}>Clear Fruit</Button>
+  <div>fruit: {fruit ? fruit : ''}</div>
 
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Numbers"
-    on:change={(e)=>console.log(e)}
+    on:change={e => console.log(e)}
     bind:value={year}
-      items={[2016,2017,2018]} ></Autocomplete>
+    items={[2016, 2017, 2018]} />
   <Autocomplete
     clearable
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Booleans"
-    on:change={(e)=>console.log(e)}
+    on:change={e => console.log(e)}
     bind:value={boo}
-      items={[true,false]}></Autocomplete>
+    items={[true, false]} />
   <Input
-    clearable {disabled}
+    clearable
+    {disabled}
     borderColor="border-green-600"
     labelColor="text-red-700"
     label="Namewertyu uiou"
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"
-    bind:value={v}/>
+    bind:value={v} />
   <Button textColor="text-white" bgColor="bg-orange-500" rounded>
     Normal Button
   </Button>
   {name} {error}
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="number only"
-    number {disabled}
-    on:input={(e)=>console.log(e)}
-    icon="search"
-    helperText={error}
-      helperTextColor="text-red-500"
-    bind:value={num}/>
-  {num}
-  <Input
-    outlined {disabled}
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Namewert Country here is very long"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name}/>
+  <div class="flex">
+    <div class="w-1/2">
+      <Input
+        outlined
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Namewert Country here is very long"
+        {disabled}
+        on:input={e => console.log(e)}
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={num} />
+    </div>
+    <div class="w-1/2">
+      <Input
+        {disabled}
+        borderColor="border-green-600"
+        labelColor="text-red-700"
+        label="Namewert Country here is very long"
+        icon="search"
+        helperText={error}
+        helperTextColor="text-red-500"
+        bind:value={name} />
+    </div>
+  </div>
   <Dialog bind:visible={dialogVisible} permanent>
     <div class="p-6 bg-gray-100 w-64 rounded">
       <div class="flex flex-col">
@@ -293,21 +324,28 @@ let disabled = true;
     label="Nameol"
     bind:value={countrySelected}
     items={countries}
-    keywordsFunction="{it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}"
+    keywordsFunction={it => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}
     labelFieldName="name"
     minCharactersToSearch={1}
     on:change={countryChanged}
-    outlined/>
+    outlined />
 
   <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
   <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
 
-  <Button textColor="text-white" bgColor="bg-orange-500" rounded
-          on:click={()=>disabled=!disabled}>
+  <Button
+    textColor="text-white"
+    bgColor="bg-orange-500"
+    rounded
+    on:click={() => (disabled = !disabled)}>
     Enable/Disable Button
   </Button>
-  <Button textColor="text-orange-500" outlineColor="border-orange-500" {disabled} outlined
-          on:click={()=>console.log('clicked')}>
+  <Button
+    textColor="text-orange-500"
+    outlineColor="border-orange-500"
+    {disabled}
+    outlined
+    on:click={() => console.log('clicked')}>
     Disabled Button
   </Button>
   <Input
@@ -318,7 +356,7 @@ let disabled = true;
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"
-    bind:value={name}/>
+    bind:value={name} />
   {name} {error}
   <Input
     borderColor="border-green-600"
@@ -327,7 +365,7 @@ let disabled = true;
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"
-    bind:value={name}/>
+    bind:value={name} />
   <Input
     outlined
     borderColor="border-green-600"
@@ -336,5 +374,5 @@ let disabled = true;
     icon="search"
     helperText={error}
     helperTextColor="text-red-500"
-    bind:value={name}/>
+    bind:value={name} />
 </div>

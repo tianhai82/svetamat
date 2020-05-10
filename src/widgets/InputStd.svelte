@@ -18,6 +18,7 @@ export let disabled = false;
 
 let hasFocus = false;
 let iconCls = '';
+let boxWidth;
 
 onMount(() => {
   iconCls = icon ? 'material-icons md-18 pointer-events-none' : 'hidden';
@@ -80,7 +81,7 @@ function clear() {
   }
 </style>
 
-<div class="flex flex-col">
+<div class="flex flex-col" bind:clientWidth={boxWidth}>
   <div
     class:opacity-50={disabled}
     class:disabled
@@ -89,8 +90,8 @@ function clear() {
   `relative rounded-t border-b border-gray-500${disabled?
   '':' hover:border-gray-900 hover:bg-gray-100'}`}">
     <label
-      style={labelTopPadding}
-      class={labelCls}>
+      style={`${labelTopPadding} max-width:${boxWidth}px;`}
+      class={`${labelCls} truncate`}>
       {label}
     </label>
     <div class="flex justify-between">
