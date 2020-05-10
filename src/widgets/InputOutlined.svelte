@@ -18,6 +18,7 @@ export let disabled = false;
 
 let hasFocus = false;
 let iconCls = '';
+let boxWidth;
 
 const y = tweened(0.75, {
   duration: 50,
@@ -98,14 +99,14 @@ function clear() {
   dispatch('clear');
 }
 </script>
-<div class="flex flex-col">
+<div class="flex flex-col" bind:clientWidth={boxWidth}>
   <fieldset {disabled} style="height:59px;"
             class="{`${fieldsetCls}relative rounded`}" class:opacity-50={disabled}>
     <legend style="{legendStyle}">&#8203</legend>
     <label
       bind:clientWidth={labelWidth}
-      style={labelTranslateStyle}
-      class={`${labelCls}absolute left-0 mx-2 pointer-events-none`}>
+      style={`${labelTranslateStyle} max-width:${boxWidth-16}px;`}
+      class={`${labelCls}absolute left-0 mx-2 pointer-events-none truncate`}>
       {label}
     </label>
     <div class="flex justify-between">
