@@ -22,6 +22,7 @@ let text = '';
 let fileInput;
 
 function selectFile() {
+  fileInput.value = '';
   fileInput.click();
 }
 
@@ -29,11 +30,11 @@ function fileSelected(e) {
   dispatch(e.type, e.target.files);
   text = '';
   const texts = [];
+
   for (let i = 0; i < e.target.files.length; i++) {
     texts.push(e.target.files[i].name);
   }
   text = texts.join(', ');
-  fileInput.value = '';
 }
 </script>
 

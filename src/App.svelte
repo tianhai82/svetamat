@@ -99,9 +99,6 @@ function uploadFile(e) {
   }
   fetch('/post', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
     body: formData,
   });
   console.log(formData.values());
@@ -255,7 +252,7 @@ function uploadFile(e) {
     !
   </h1>
   {files}
-  <FileInput label="File Upload" accept=".json" bind:value={files} multiple outlined
+  <FileInput label="File Upload" accept=".json" bind:value={files} outlined
              on:change={uploadFile}></FileInput>
   <Button textColor="text-white" bgColor="bg-orange-500">Normal Button</Button>
   <Button
