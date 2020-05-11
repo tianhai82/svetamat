@@ -16,6 +16,7 @@ export let icon = '';
 export let clearable = false;
 export let disabled = false;
 export let hideDetails = false;
+export let readonly = false;
 
 let hasFocus = false;
 let iconCls = '';
@@ -96,7 +97,7 @@ function clear() {
       {label}
     </label>
     <div class="flex justify-between">
-      <input {type}
+      <input {type} {readonly}
              {value} {disabled}
              on:input={handleInput}
              on:focus="{() => hasFocus=true}"
@@ -104,6 +105,7 @@ function clear() {
              on:focus
              on:blur
              on:keydown
+             on:click
              style="{inputPadBottom}"
              class="pt-6 appearance-none bg-transparent border-none w-full
          text-gray-800 px-2 focus:outline-none"/>

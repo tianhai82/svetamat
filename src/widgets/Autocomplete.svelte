@@ -12,6 +12,7 @@ export let noResultsText = 'No results found';
 export let maxLen = undefined;
 export let clearable = false;
 export let disabled = false;
+export let hideDetails = false;
 
 export let borderColor = 'border-gray-700';
 export let labelColor = 'text-gray-700';
@@ -147,7 +148,7 @@ function onClear() {
   }
 </style>
 <div class="relative">
-  <Input {outlined} icon="{icon}" {clearable} {disabled}
+  <Input {outlined} icon="{icon}" {clearable} {disabled} {hideDetails}
          {label} {labelColor} {borderColor} {helperText} {helperTextColor}
          bind:value={text}
          on:input="{onInput}"
