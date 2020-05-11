@@ -26,7 +26,7 @@ function selectFile() {
 }
 
 function fileSelected(e) {
-  dispatch(e.type, [...e.target.files]);
+  dispatch(e.type, e.target.files);
   text = '';
   const texts = [];
   for (let i = 0; i < e.target.files.length; i++) {

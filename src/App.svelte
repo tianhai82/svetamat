@@ -91,6 +91,21 @@ const sectors = [
 let sectorSelection = [];
 let disabled = true;
 let files;
+
+function uploadFile(e) {
+  const formData = new FormData();
+  for (let i = 0; i < e.detail.length; i++) {
+    formData.append(`files-${i}`, e.detail[i]);
+  }
+  fetch('/post', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: formData,
+  });
+  console.log(formData.values());
+}
 </script>
 
 <style>
@@ -241,7 +256,7 @@ let files;
   </h1>
   {files}
   <FileInput label="File Upload" accept=".json" bind:value={files} multiple outlined
-             on:change={(e)=> console.log(e.detail)}></FileInput>
+             on:change={uploadFile}></FileInput>
   <Button textColor="text-white" bgColor="bg-orange-500">Normal Button</Button>
   <Button
     textColor="text-orange-500"
