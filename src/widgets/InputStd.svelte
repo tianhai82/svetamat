@@ -15,6 +15,7 @@ export let helperTextColor = '';
 export let icon = '';
 export let clearable = false;
 export let disabled = false;
+export let hideDetails = false;
 
 let hasFocus = false;
 let iconCls = '';
@@ -114,5 +115,7 @@ function clear() {
       </div>
     </div>
   </div>
-  <div class={helperTextCls}>{helperText}</div>
+  {#if !hideDetails}
+    <div class={helperTextCls}>{helperText}</div>
+  {/if}
 </div>
