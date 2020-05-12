@@ -17,6 +17,7 @@ export let outlined = false;
 export let icon = '';
 export let hideDetails = false;
 export let multiple = false;
+export let value = null;
 
 let text = '';
 let fileInput;
@@ -26,7 +27,12 @@ function selectFile() {
   fileInput.click();
 }
 
+$: if (!value) {
+  text = '';
+}
+
 function fileSelected(e) {
+  value = e.target.files;
   dispatch(e.type, e.target.files);
   text = '';
   const texts = [];

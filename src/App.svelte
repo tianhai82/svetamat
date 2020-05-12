@@ -92,10 +92,10 @@ let sectorSelection = [];
 let disabled = true;
 let files;
 
-function uploadFile(e) {
+function uploadFile() {
   const formData = new FormData();
-  for (let i = 0; i < e.detail.length; i++) {
-    formData.append(`files-${i}`, e.detail[i]);
+  for (let i = 0; i < files.length; i++) {
+    formData.append(`files-${i}`, files[i]);
   }
   fetch('/post', {
     method: 'POST',
@@ -113,7 +113,7 @@ function uploadFile(e) {
 
 <Tailwindcss/>
 <div
-  class="bg-pink-100 fixed left-0 right-0 top-0 h-16 mt-0 z-10 flex items-center
+  class="bg-pink-100 fixed left-0 right-0 top-0 h-16 mt-0 z-40 flex items-center
   justify-between elevation-4">
   <div class="flex items-center">
     <i
@@ -251,16 +251,18 @@ function uploadFile(e) {
     Hello {countrySelected && countrySelected.name ? countrySelected.name : 'No country selected'}
     !
   </h1>
-  {files}
   <FileInput label="File Upload" accept=".json" bind:value={files} outlined
              on:change={uploadFile}></FileInput>
-  <Button textColor="text-white" bgColor="bg-orange-500">Normal Button</Button>
+  <Button textColor="text-white" bgColor="bg-orange-500" on:click={()=>files=null}>Clear
+    Files
+  </Button>
   <Button
     textColor="text-orange-500"
     outlineColor="border-orange-500"
     outlined
+    on:click={uploadFile}
     rounded>
-    Normal Button
+    Upload
   </Button>
   <Button textColor="text-orange-500" text>Normal Button</Button>
   <Button on:click={() => (fruit = '')}>Clear Fruit</Button>
