@@ -14,7 +14,7 @@ import Cascader from './widgets/Cascader.svelte';
 import FileInput from './widgets/FileInput.svelte';
 
 export let name = '';
-let countrySelected = {};
+let countrySelected = null;
 let error = '';
 let sliderValue = 10;
 let sliderValue2 = 10;
@@ -24,7 +24,7 @@ $: if (!name || name.trim().length === 0) {
   error = '';
 }
 
-const fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
+let fruits = ['APPLE', 'ORANGE', 'PEAR', 'STRAWBERRY'];
 let fruit = 'APPLE';
 let num = 54.1;
 
@@ -199,6 +199,7 @@ function uploadFile() {
     items={sectors}
     bind:value={sectorSelection}
     labelFieldName="text"/>
+  <Button on:click={() => fruits = fruits.filter(i => i!=='APPLE')}>Remove Apple</Button>
   <Autocomplete
     borderColor="border-green-600"
     labelColor="text-red-700"

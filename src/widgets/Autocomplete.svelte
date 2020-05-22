@@ -49,6 +49,13 @@ function onInput(e) {
   }
 }
 
+$: if (value) {
+  if (!items.some(it => keywordsFunction(it) === keywordsFunction(value))) {
+    value = null;
+  }
+}
+
+
 $: if (value == null) {
   setText('');
 } else if (typeof value === 'string') {
