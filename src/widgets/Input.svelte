@@ -16,10 +16,6 @@ export let disabled = false;
 export let hideDetails = false;
 export let readonly = false;
 
-let hasFocus = false;
-let labelCls = 'absolute left-0 px-2 text-sm text-gray-600';
-let outlinedlabelCls = '';
-
 </script>
 {#if !outlined}
   <InputStd {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}

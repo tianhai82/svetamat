@@ -207,7 +207,8 @@ html, body {
     url('./fonts/roboto-v20-latin-900italic.ttf') format('truetype'), /* Safari, Android, iOS */
     url('./fonts/roboto-v20-latin-900italic.svg#Roboto') format('svg'); /* Legacy iOS */
 }
+
 body {
     margin: 0;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
 }

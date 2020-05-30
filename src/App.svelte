@@ -3,6 +3,7 @@ import Tailwindcss from './Tailwindcss.svelte';
 import Button from './widgets/Button.svelte';
 import Checkbox from './widgets/Checkbox.svelte';
 import Input from './widgets/Input.svelte';
+import TextArea from './widgets/TextArea.svelte';
 import Autocomplete from './widgets/Autocomplete.svelte';
 import NavigationDrawer from './widgets/NavigationDrawer.svelte';
 import Dialog from './widgets/Dialog.svelte';
@@ -289,7 +290,7 @@ function uploadFile() {
         {disabled}
         borderColor="border-green-600"
         labelColor="text-red-700"
-        label="Namewertyu uiou"
+        label="姓名"
         icon="search"
         helperText={error}
         helperTextColor="text-red-500"
@@ -304,7 +305,7 @@ function uploadFile() {
             outlined
             borderColor="border-green-600"
             labelColor="text-red-700"
-            label="Namewert Country here is very long"
+            label="公司"
             {disabled}
             on:input={e => console.log(e)}
             icon="search"
@@ -317,7 +318,7 @@ function uploadFile() {
             {disabled}
             borderColor="border-green-600"
             labelColor="text-red-700"
-            label="Namewert Country here is very long"
+            label="联络号码"
             icon="search"
             helperText={error}
             helperTextColor="text-red-500"
@@ -368,20 +369,22 @@ function uploadFile() {
           on:click={() => console.log('clicked')}>
           Disabled Button
         </Button>
-        <Input
+        <TextArea
+          height="h-20"
           outlined
           borderColor="border-green-600"
           labelColor="text-red-700"
-          label="Name"
+          label="电邮"
           icon="search"
           helperText={error}
           helperTextColor="text-red-500"
           bind:value={name}/>
         {name} {error}
-        <Input
+        <TextArea
+          height="h-20"
           borderColor="border-green-600"
           labelColor="text-red-700"
-          label="b"
+          label="text area"
           icon="search"
           helperText={error}
           helperTextColor="text-red-500"
