@@ -11,3 +11,4 @@ export { default as Spinner } from './widgets/Spinner.svelte';
 export { default as Checkbox } from './widgets/Checkbox.svelte';
 export { default as Cascader } from './widgets/Cascader.svelte';
 export { default as FileInput } from './widgets/FileInput.svelte';
+export { default as TextArea } from './widgets/TextArea.svelte';
