@@ -147,6 +147,7 @@ function onBlur() {
 function onClear() {
   value = null;
   text = '';
+  dispatch('change', null);
 }
 </script>
 <style>
