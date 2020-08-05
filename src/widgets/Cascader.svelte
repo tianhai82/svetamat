@@ -192,7 +192,7 @@ let mouseover;
     on:blur={onBlur}
     on:mouseenter={()=> mouseover = true}
     on:mouseleave={()=> mouseover = false}
-      class="{`focus:outline-none absolute z-30 bg-white -mt-4 rounded-sm elevation-4 ${listVisible? '' : 'hidden'}`}">
+      class="{`focus:outline-none absolute z-30 bg-white -mt-5 rounded-sm elevation-4 ${listVisible? '' : 'hidden'}`}">
     {#if items.length>0 && flattenList.length === 0 && !searching}
       <div class="flex">
         {#each

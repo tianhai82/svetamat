@@ -168,7 +168,7 @@ function onClear() {
   <div style="max-height: 320px;"
        on:mouseenter={()=> itemClicked = true}
        on:mouseleave={()=> itemClicked = false}
-         class="{`absolute bg-white -mt-4 rounded-sm w-full elevation-4 z-30 overflow-y-auto ${listVisible
+         class="{`absolute bg-white rounded-sm w-full elevation-4 z-30 overflow-y-auto ${hideDetails?'mt-0':'-mt-5'} ${listVisible
          && text.toString().length>=minCharactersToSearch ? '' : 'hidden'}`}">
     {#if filteredListItems.length>0}
       <ul class="my-2">
