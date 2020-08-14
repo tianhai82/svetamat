@@ -71,7 +71,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "rollup-plugin-terser",
-        "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.3.0"
+        "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"
       ],
       [
         "sirv-cli",
@@ -111,7 +111,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-alias", "npm:2.2.0"],
             ["rollup-plugin-livereload", "npm:1.3.0"],
             ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.1"],
-            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.3.0"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
             ["sirv-cli", "npm:0.4.5"],
             ["svelte", "npm:3.22.2"],
             ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.7.4"],
@@ -122,30 +122,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@babel/code-frame", [
-        ["npm:7.8.3", {
-          "packageLocation": "./.yarn/cache/@babel-code-frame-npm-7.8.3-ea28dc5d9b-3.zip/node_modules/@babel/code-frame/",
+        ["npm:7.10.4", {
+          "packageLocation": "./.yarn/cache/@babel-code-frame-npm-7.10.4-ab1ee3c93e-3.zip/node_modules/@babel/code-frame/",
           "packageDependencies": [
-            ["@babel/code-frame", "npm:7.8.3"],
-            ["@babel/highlight", "npm:7.9.0"]
+            ["@babel/code-frame", "npm:7.10.4"],
+            ["@babel/highlight", "npm:7.10.4"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@babel/helper-validator-identifier", [
-        ["npm:7.9.5", {
-          "packageLocation": "./.yarn/cache/@babel-helper-validator-identifier-npm-7.9.5-3e1aa36327-3.zip/node_modules/@babel/helper-validator-identifier/",
+        ["npm:7.10.4", {
+          "packageLocation": "./.yarn/cache/@babel-helper-validator-identifier-npm-7.10.4-0689d787fa-3.zip/node_modules/@babel/helper-validator-identifier/",
           "packageDependencies": [
-            ["@babel/helper-validator-identifier", "npm:7.9.5"]
+            ["@babel/helper-validator-identifier", "npm:7.10.4"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@babel/highlight", [
-        ["npm:7.9.0", {
-          "packageLocation": "./.yarn/cache/@babel-highlight-npm-7.9.0-859210b14e-3.zip/node_modules/@babel/highlight/",
+        ["npm:7.10.4", {
+          "packageLocation": "./.yarn/cache/@babel-highlight-npm-7.10.4-c7ff18fbba-3.zip/node_modules/@babel/highlight/",
           "packageDependencies": [
-            ["@babel/highlight", "npm:7.9.0"],
-            ["@babel/helper-validator-identifier", "npm:7.9.5"],
+            ["@babel/highlight", "npm:7.10.4"],
+            ["@babel/helper-validator-identifier", "npm:7.10.4"],
             ["chalk", "npm:2.4.2"],
             ["js-tokens", "npm:4.0.0"]
           ],
@@ -1493,12 +1493,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-worker", [
-        ["npm:24.9.0", {
-          "packageLocation": "./.yarn/cache/jest-worker-npm-24.9.0-bcd452e3a8-3.zip/node_modules/jest-worker/",
+        ["npm:26.3.0", {
+          "packageLocation": "./.yarn/cache/jest-worker-npm-26.3.0-e1f6959752-3.zip/node_modules/jest-worker/",
           "packageDependencies": [
-            ["jest-worker", "npm:24.9.0"],
+            ["jest-worker", "npm:26.3.0"],
+            ["@types/node", "npm:13.13.4"],
             ["merge-stream", "npm:2.0.0"],
-            ["supports-color", "npm:6.1.0"]
+            ["supports-color", "npm:7.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -2251,6 +2252,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["randombytes", [
+        ["npm:2.1.0", {
+          "packageLocation": "./.yarn/cache/randombytes-npm-2.1.0-e3da76bccf-3.zip/node_modules/randombytes/",
+          "packageDependencies": [
+            ["randombytes", "npm:2.1.0"],
+            ["safe-buffer", "npm:5.2.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["readable-stream", [
         ["npm:2.3.7", {
           "packageLocation": "./.yarn/cache/readable-stream-npm-2.3.7-77b22a9818-3.zip/node_modules/readable-stream/",
@@ -2424,16 +2435,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["rollup-plugin-terser", [
-        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.3.0", {
-          "packageLocation": "./.yarn/$$virtual/rollup-plugin-terser-virtual-48a7fcbc6f/0/cache/rollup-plugin-terser-npm-5.3.0-159a944991-3.zip/node_modules/rollup-plugin-terser/",
+        ["virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0", {
+          "packageLocation": "./.yarn/$$virtual/rollup-plugin-terser-virtual-57289d182b/0/cache/rollup-plugin-terser-npm-7.0.0-11d461d4f8-3.zip/node_modules/rollup-plugin-terser/",
           "packageDependencies": [
-            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.3.0"],
-            ["@babel/code-frame", "npm:7.8.3"],
-            ["jest-worker", "npm:24.9.0"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
+            ["@babel/code-frame", "npm:7.10.4"],
+            ["jest-worker", "npm:26.3.0"],
             ["rollup", "npm:1.32.1"],
-            ["rollup-pluginutils", "npm:2.8.2"],
-            ["serialize-javascript", "npm:2.1.2"],
-            ["terser", "npm:4.6.13"]
+            ["serialize-javascript", "npm:4.0.0"],
+            ["terser", "npm:5.0.0"]
           ],
           "packagePeers": [
             "rollup"
@@ -2475,6 +2485,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["safe-buffer", "npm:5.2.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:5.2.1", {
+          "packageLocation": "./.yarn/cache/safe-buffer-npm-5.2.1-3481c8aa9b-3.zip/node_modules/safe-buffer/",
+          "packageDependencies": [
+            ["safe-buffer", "npm:5.2.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["safer-buffer", [
@@ -2496,10 +2513,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["serialize-javascript", [
-        ["npm:2.1.2", {
-          "packageLocation": "./.yarn/cache/serialize-javascript-npm-2.1.2-5c32ad4093-3.zip/node_modules/serialize-javascript/",
+        ["npm:4.0.0", {
+          "packageLocation": "./.yarn/cache/serialize-javascript-npm-4.0.0-b4aeff413b-3.zip/node_modules/serialize-javascript/",
           "packageDependencies": [
-            ["serialize-javascript", "npm:2.1.2"]
+            ["serialize-javascript", "npm:4.0.0"],
+            ["randombytes", "npm:2.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -2771,7 +2789,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-alias", "npm:2.2.0"],
             ["rollup-plugin-livereload", "npm:1.3.0"],
             ["rollup-plugin-svelte", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.2.1"],
-            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:5.3.0"],
+            ["rollup-plugin-terser", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:7.0.0"],
             ["sirv-cli", "npm:0.4.5"],
             ["svelte", "npm:3.22.2"],
             ["svelte-preprocess", "virtual:2cd67af342b4d7624fb620d412255a1c3e513d744a2bb42c929bd4f76b5808e5b49341d6d41058b51883d438cc950a23c755793416a0a9b90d7dea71d1cbf5b0#npm:3.7.4"],
@@ -2836,10 +2854,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["terser", [
-        ["npm:4.6.13", {
-          "packageLocation": "./.yarn/cache/terser-npm-4.6.13-0c96d12fe2-3.zip/node_modules/terser/",
+        ["npm:5.0.0", {
+          "packageLocation": "./.yarn/cache/terser-npm-5.0.0-9ae31d2d50-3.zip/node_modules/terser/",
           "packageDependencies": [
-            ["terser", "npm:4.6.13"],
+            ["terser", "npm:5.0.0"],
             ["commander", "npm:2.20.3"],
             ["source-map", "npm:0.6.1"],
             ["source-map-support", "npm:0.5.19"]

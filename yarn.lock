@@ -4,30 +4,30 @@
 __metadata:
   version: 4
 
-"@babel/code-frame@npm:^7.5.5":
-  version: 7.8.3
-  resolution: "@babel/code-frame@npm:7.8.3"
+"@babel/code-frame@npm:^7.10.4":
+  version: 7.10.4
+  resolution: "@babel/code-frame@npm:7.10.4"
   dependencies:
-    "@babel/highlight": ^7.8.3
-  checksum: 3/0552a3e3667ad5af3bbffd537a7d177f321af3ff416522a9e9c7c671b9fc5d7f5eb6847e676e8de7a7362819e9670d9fe684e95d1c98adad0c0a0763c096955e
+    "@babel/highlight": ^7.10.4
+  checksum: 3/05245d3b22a3ae849439195c4ee9ce9903dfd8c3fcb5124e77923c45e9f1ceac971cce4c61505974f411a9db432949531abe10ddee92937a0a9c306dc380a5b2
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.9.0":
-  version: 7.9.5
-  resolution: "@babel/helper-validator-identifier@npm:7.9.5"
-  checksum: 3/f4dd825c0b959d2b634a7b8397f826e6b69d0a0213686ed3a0fc1ed42d278e374d821dc036dffc3a27223b8465eb62a6c30363f5e20427f29c6b6f8bef456ca3
+"@babel/helper-validator-identifier@npm:^7.10.4":
+  version: 7.10.4
+  resolution: "@babel/helper-validator-identifier@npm:7.10.4"
+  checksum: 3/25098ef842e3ffecdd9a7216f6173da7ad7be1b0b3e454a9f6965055154b9ad7a4acd2f218ba3d2efc0821bdab97837b3cb815844af7d72f66f89d446a54efc6
   languageName: node
   linkType: hard
 
-"@babel/highlight@npm:^7.8.3":
-  version: 7.9.0
-  resolution: "@babel/highlight@npm:7.9.0"
+"@babel/highlight@npm:^7.10.4":
+  version: 7.10.4
+  resolution: "@babel/highlight@npm:7.10.4"
   dependencies:
-    "@babel/helper-validator-identifier": ^7.9.0
+    "@babel/helper-validator-identifier": ^7.10.4
     chalk: ^2.0.0
     js-tokens: ^4.0.0
-  checksum: 3/9887f2fe93b10b53bffb70cccd22dff179a10230985c67dbcf8f27a536714777b8ed68548181af80f132125e8ff7464362b73081ed1510899b5040734a91e202
+  checksum: 3/c167b938af9797e7630dd922398ceb1a079469085b9c0a7274f093f9f2b1ef9f0a5efec89592e81cbab7c87a537d32c238cea97d288b7af9a0d26b2bceb7a439
   languageName: node
   linkType: hard
 
@@ -1201,13 +1201,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"jest-worker@npm:^24.9.0":
-  version: 24.9.0
-  resolution: "jest-worker@npm:24.9.0"
+"jest-worker@npm:^26.2.1":
+  version: 26.3.0
+  resolution: "jest-worker@npm:26.3.0"
   dependencies:
+    "@types/node": "*"
     merge-stream: ^2.0.0
-    supports-color: ^6.1.0
-  checksum: 3/9740355081d8f98b15e035405a76a9eafc4ee2b943e00bbc74c34fa632a23e2c2d9d9efb4eb86165435ff76f8bc95dcd74ec63b5acbeb2f0755c83e77d0e71f4
+    supports-color: ^7.0.0
+  checksum: 3/6b7190ef8f6e0dec1a2ed865624e45bc7a7d18795911890423813d1972521abe6f1f2e57076070cb70efa3b5f1b5cf54f33bc7e0bcda41d04341df47f0487d59
   languageName: node
   linkType: hard
 
@@ -1876,6 +1877,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"randombytes@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "randombytes@npm:2.1.0"
+  dependencies:
+    safe-buffer: ^5.1.0
+  checksum: 3/ede2693af09732ceab1c273dd70db787f34a7b8d95bab13f1aca763483c0113452a78e53d61ff18d393dcea586d388e01f198a5132a4a85cebba31ec54164b75
+  languageName: node
+  linkType: hard
+
 "readable-stream@npm:^2.0.6":
   version: 2.3.7
   resolution: "readable-stream@npm:2.3.7"
@@ -2027,18 +2037,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rollup-plugin-terser@npm:^5.1.2":
-  version: 5.3.0
-  resolution: "rollup-plugin-terser@npm:5.3.0"
+"rollup-plugin-terser@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "rollup-plugin-terser@npm:7.0.0"
   dependencies:
-    "@babel/code-frame": ^7.5.5
-    jest-worker: ^24.9.0
-    rollup-pluginutils: ^2.8.2
-    serialize-javascript: ^2.1.2
-    terser: ^4.6.2
+    "@babel/code-frame": ^7.10.4
+    jest-worker: ^26.2.1
+    serialize-javascript: ^4.0.0
+    terser: ^5.0.0
   peerDependencies:
-    rollup: ">=0.66.0 <3"
-  checksum: 3/51d113b7288d74dfc71750e90d2247b6d0d561a8b03b13f5f3478b6297a0dfaa5cb9045d5369c8d2c4045a66191d33a354a2147750a02a6986b63599c3544240
+    rollup: ^2.0.0
+  checksum: 3/56e22420ea4ce735a3779f4ee0ad4d33d0c2bc15a9c276772b53cd0fe5fb7a59184aa8de8ee2b90261de8357b26e8f7c374e92ece53654efd6932c643aeb76c3
   languageName: node
   linkType: hard
 
@@ -2080,6 +2089,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"safe-buffer@npm:^5.1.0":
+  version: 5.2.1
+  resolution: "safe-buffer@npm:5.2.1"
+  checksum: 3/0bb57f0d8f9d1fa4fe35ad8a2db1f83a027d48f2822d59ede88fd5cd4ddad83c0b497213feb7a70fbf90597a70c5217f735b0eb1850df40ce9b4ae81dd22b3f9
+  languageName: node
+  linkType: hard
+
 "safe-buffer@npm:~5.1.0, safe-buffer@npm:~5.1.1":
   version: 5.1.2
   resolution: "safe-buffer@npm:5.1.2"
@@ -2103,10 +2119,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"serialize-javascript@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "serialize-javascript@npm:2.1.2"
-  checksum: 3/9a4d4da6469e327332203438eed9a408e0618519d18aaba3790c88bf87712df4d577423d8fbd7122753800fa12afe19540cba111178ab0cf1f33c2b5771731bf
+"serialize-javascript@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "serialize-javascript@npm:4.0.0"
+  dependencies:
+    randombytes: ^2.1.0
+  checksum: 3/f17305aaabab9ae443505d1bf477c13b09adb7031c397d18400bec16f43f788febdd3311ca6043fdebd1d446cfa70a5804ef7268da54351dec51080f56d52fa9
   languageName: node
   linkType: hard
 
@@ -2295,7 +2313,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^7.1.0":
+"supports-color@npm:^7.0.0, supports-color@npm:^7.1.0":
   version: 7.1.0
   resolution: "supports-color@npm:7.1.0"
   dependencies:
@@ -2372,7 +2390,7 @@ fsevents@~2.1.2:
     rollup-plugin-alias: ^2.2.0
     rollup-plugin-livereload: ^1.0.0
     rollup-plugin-svelte: ^5.0.3
-    rollup-plugin-terser: ^5.1.2
+    rollup-plugin-terser: ^7.0.0
     sirv-cli: ^0.4.4
     svelte: ^3.20.1
     svelte-preprocess: ^3.7.4
@@ -2439,16 +2457,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"terser@npm:^4.6.2":
-  version: 4.6.13
-  resolution: "terser@npm:4.6.13"
+"terser@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "terser@npm:5.0.0"
   dependencies:
     commander: ^2.20.0
     source-map: ~0.6.1
     source-map-support: ~0.5.12
   bin:
     terser: bin/terser
-  checksum: 3/dbb9ff02c2b11341e1525dcffec7a80a25737a64c17719b4ae00aee7585d2742f450692dfec8ee13f0f0ff58136a70fbe280d0a3cb50e14ad92204e9ac65e879
+  checksum: 3/807c19a8f5c5d67fbf4c463251351b9c1dfd3297fa5bf1d6e455ff0be1d1a86364e66c05872d0222d39633d5b91867c8e74d4e7a75fb54d53a387dcf5bd4b3c8
   languageName: node
   linkType: hard
 
