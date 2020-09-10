@@ -1,14 +1,14 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-// import livereload from 'rollup-plugin-livereload';
+import serve from 'rollup-plugin-serve'
+import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import pkg from './package.json';
-import rollup_start_dev from './rollup_start_dev';
 
 const production = !process.env.ROLLUP_WATCH;
-const bundleCss = production? 'dist/svetamat.css':'public/bundle.css';
+const bundleCss = production ? 'dist/svetamat.css' : 'public/bundle.css';
 
 const name = pkg.name
   .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -23,19 +23,19 @@ export default {
     name: 'app',
     file: 'public/bundle.js',
   } : [
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true,
-      name,
-    },
-    {
-      file: pkg.main,
-      format: 'umd',
-      sourcemap: true,
-      name,
-    },
-  ],
+      {
+        file: pkg.module,
+        format: 'es',
+        sourcemap: true,
+        name,
+      },
+      {
+        file: pkg.main,
+        format: 'umd',
+        sourcemap: true,
+        name,
+      },
+    ],
   plugins: [
     svelte({
       preprocess: sveltePreprocess({ postcss: true }),
@@ -60,13 +60,10 @@ export default {
     }),
     commonjs(),
 
-    // In dev mode, call `npm run start:dev` once
-    // the bundle has been generated
-    !production && rollup_start_dev,
-
+    !production && serve({ port: 5001, contentBase: 'public' }),
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
-    // !production && livereload('public'),
+    !production && livereload({ watch: 'public' }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
