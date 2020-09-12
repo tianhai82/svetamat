@@ -1,412 +1,60 @@
 <script>
   import Tailwindcss from "./Tailwindcss.svelte";
-  import Button from "./widgets/Button.svelte";
-  import Checkbox from "./widgets/Checkbox.svelte";
-  import Input from "./widgets/Input.svelte";
-  import TextArea from "./widgets/TextArea.svelte";
-  import Autocomplete from "./widgets/Autocomplete.svelte";
   import NavigationDrawer from "./widgets/NavigationDrawer.svelte";
-  import Dialog from "./widgets/Dialog.svelte";
-  import Slider from "./widgets/Slider.svelte";
-  import { countries } from "./countries";
-  import Spinner from "./widgets/Spinner.svelte";
-  import Progress from "./widgets/Progress.svelte";
-  import Cascader from "./widgets/Cascader.svelte";
-  import FileInput from "./widgets/FileInput.svelte";
+  import Github from "./svg/Github.svelte";
+  import Installation from "./components/Installation.svelte";
+  import ButtonGuide from "./components/ButtonGuide.svelte";
+  import DialogGuide from "./components/DialogGuide.svelte";
+  import NavigationDrawerGuide from "./components/NavigationDrawerGuide.svelte";
+  import ProgressGuide from "./components/ProgressGuide.svelte";
+  import SpinnerGuide from "./components/SpinnerGuide.svelte";
+  import InputGuide from "./components/InputGuide.svelte";
 
-  export let name = "";
-  let countrySelected = null;
-  let error = "";
-  let sliderValue = 10;
-  let sliderValue2 = 10;
-  $: if (!name || name.trim().length === 0) {
-    error = "Please enter a name";
-  } else {
-    error = "";
-  }
-
-  let fruits = ["APPLE", "ORANGE", "PEAR", "STRAWBERRY"];
-  let fruit = "APPLE";
-  let num = 54.1;
-
-  function countryChanged(item) {
-    console.log(item);
-  }
-
-  let visible = false;
-  let dialogVisible = false;
-  let year = 2016;
-  let boo;
-  let v = "";
-
-  const sectors = [
-    { text: "Finance" },
-    { text: "Healthcare" },
-    {
-      text: "Energy",
-      children: [
-        {
-          text: "Oil & Gas",
-          children: [
-            {
-              text: "Oil",
-            },
-            {
-              text: "Gas",
-            },
-          ],
-        },
-        {
-          text: "Natural Gas",
-        },
-      ],
-    },
-    {
-      text: "Information Technology",
-      children: [
-        {
-          text: "Software",
-          children: [
-            {
-              text: "C++",
-            },
-            {
-              text: "Python",
-            },
-          ],
-        },
-        {
-          text: "Hardware",
-          children: [
-            {
-              text: "Network Equipment",
-            },
-            {
-              text: "Silicon Chips",
-            },
-          ],
-        },
-      ],
-    },
+  const items = [
+    { text: "Installation", component: Installation },
+    { text: "Button", component: ButtonGuide },
+    { text: "Dialog", component: DialogGuide },
+    { text: "Navigation Drawer", component: NavigationDrawerGuide },
+    { text: "Progress", component: ProgressGuide },
+    { text: "Spinner", component: SpinnerGuide },
+    { text: "Input", component: InputGuide },
   ];
-  let sectorSelection = [];
-  let disabled = true;
-  let files;
-
-  function uploadFile() {
-    const formData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      formData.append(`files-${i}`, files[i]);
-    }
-    fetch("/post", {
-      method: "POST",
-      body: formData,
-    });
-    console.log(formData.values());
-  }
+  let selectedComponent = { text: "Input", component: InputGuide };
 </script>
 
 <style>
-  h1 {
-    color: purple;
-  }
 </style>
 
 <Tailwindcss />
-<div
-  class="bg-pink-100 fixed left-0 right-0 top-0 h-16 mt-0 z-40 flex items-center
-  justify-between elevation-4">
-  <div class="flex items-center">
-    <i
-      class="material-icons text-gray-900 ml-6 cursor-pointer ripple"
-      on:click={() => (visible = !visible)}>
-      menu
-    </i>
-    <span class="ml-4 text-xl font-semibold text-gray-900">Time to Trade</span>
+<div class="h-full flex flex-col">
+  <div
+    class="bg-teal-100 flex-shrink-0 h-16 mt-0 z-40 flex items-center
+      justify-between elevation-4 static">
+    <div class="flex items-center">
+      <span class="ml-6 text-xl font-semibold text-blue-900">SVETAMAT</span>
+    </div>
+    <a
+      class="flex items-center mr-6"
+      href="https://github.com/tianhai82/svetamat">
+      <Github />
+    </a>
   </div>
-  <span class="mr-6 text-lg uppercase text-gray-900">Tan Yin Loo</span>
-</div>
-<div class="mb-5 mt-16 lg:px-32 px-4">
-  <NavigationDrawer bind:visible marginTop="mt-16">
-    <div class="w-56 bg-red-100 h-full">
-      <h3 class="font-medium px-6 pb-3 pt-4 tracking-wide text-gray-900">
-        Menu
-      </h3>
-      <ul class="">
-        <li
-          on:click|preventDefault
-          class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
-          Stock Analysis
-        </li>
-        <li
-          on:click|preventDefault
-          class="px-4 py-3 hover:bg-gray-200 text-gray-800 text-sm tracking-wide">
-          Subscriptions
-        </li>
+  <div class="flex-grow flex flex-row h-0">
+    <div
+      class="h-full w-56 bg-gray-700 text-gray-100 overflow-y-auto flex-shrink-0">
+      <ul class="mx-3 py-3">
+        {#each items as item}
+          <li
+            on:click={() => (selectedComponent = item)}
+            class={`px-4 py-3 my-1 ${selectedComponent.text === item.text ? 'rounded bg-gray-600 text-white font-medium tracking-wide' : 'cursor-pointer'}`}>
+            {item.text}
+          </li>
+        {/each}
       </ul>
     </div>
-  </NavigationDrawer>
-  <div class="flex flex-row-reverse">
-    <Spinner />
-    <Button
-      text
-      textColor="text-gray-900"
-      on:click={() => (dialogVisible = !dialogVisible)}>
-      Toggle
-    </Button>
-    <Button
-      text
-      textColor="text-gray-900"
-      on:click={() => (disabled = !disabled)}>
-      Disabled
-    </Button>
-    <Checkbox
-      bind:checked={visible}
-      color="text-red-800"
-      on:input={(e) => console.log(e.detail)}
-      label="show navi" />
-    <Checkbox
-      color="text-yellow-600"
-      indeterminate
-      on:input={(e) => console.log(e.detail)}
-      label="indet" />
-  </div>
-  <table class="table-auto w-full h-full pb-5">
-    <tr>
-      <td class="border px-2 py-1 items-center text-center">
-        <Checkbox
-          color="text-yellow-600"
-          indeterminate
-          on:input={(e) => console.log(e.detail)} />
-      </td>
-      <td class="border px-2 py-1 items-center text-center">
-        <Checkbox
-          color="text-yellow-600"
-          indeterminate
-          on:input={(e) => console.log(e.detail)}>
-          Test
-        </Checkbox>
-      </td>
-      <td class="border px-2 py-1 text-center w-24">
-        a very long text from nethelands and the united states of America
-      </td>
-    </tr>
-  </table>
-  {sectorSelection}
-  <Cascader
-    outlined
-    clearable
-    label="Cascader Box"
-    items={sectors}
-    bind:value={sectorSelection}
-    labelFieldName="text" />
-  <Button on:click={() => (fruits = fruits.filter((i) => i !== 'APPLE'))}>
-    Remove Apple
-  </Button>
-  <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Nameol"
-    hideDetails={true}
-    clearable
-    bind:value={fruit}
-    items={fruits} />
-  <Cascader
-    outlined
-    clearable
-    label="Cascader Box"
-    items={sectors}
-    bind:value={sectorSelection}
-    labelFieldName="text" />
-  <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Nameol"
-    clearable
-    bind:value={fruit}
-    items={fruits} />
-  <Progress />
-  <Progress />
-  <Button on:click={() => (sliderValue = 10)} bgColor="bg-purple-300">
-    Reset Slider Value
-  </Button>
-  <div>
 
-    <input type="range" min="9" max="20" class="w-full mb-5" />
-    <input type="range" min="9" max="20" class="w-full" />
-
-    <Slider
-      min={9}
-      max={11}
-      bind:value={sliderValue}
-      thumbColor="text-red-600"
-      trackEmptyColor="bg-red-200"
-      trackFilledColor="bg-red-600" />
-    {sliderValue} {sliderValue2}
-    <Slider
-      min={9}
-      max={11}
-      bind:value={sliderValue2}
-      thumbColor="text-red-600"
-      trackEmptyColor="bg-red-200"
-      trackFilledColor="bg-red-600" />
-  </div>
-
-  <h1>
-    Hello {countrySelected && countrySelected.name ? countrySelected.name : 'No country selected'}
-    !
-  </h1>
-  <FileInput
-    label="File Upload"
-    accept=".json"
-    bind:value={files}
-    outlined
-    on:change={uploadFile} />
-  <Button
-    textColor="text-white"
-    bgColor="bg-orange-500"
-    on:click={() => (files = null)}>
-    Clear Files
-  </Button>
-  <Button
-    textColor="text-orange-500"
-    outlineColor="border-orange-500"
-    outlined
-    on:click={uploadFile}
-    rounded>
-    Upload
-  </Button>
-  <Button textColor="text-orange-500" text>Normal Button</Button>
-  <Button on:click={() => (fruit = '')}>Clear Fruit</Button>
-  <div>fruit: {fruit ? fruit : ''}</div>
-
-  <Autocomplete
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Numbers"
-    on:change={(e) => console.log(e)}
-    bind:value={year}
-    items={[2016, 2017, 2018]} />
-  <Autocomplete
-    clearable
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Booleans"
-    on:change={(e) => console.log(e)}
-    bind:value={boo}
-    items={[true, false]} />
-  <Input
-    clearable
-    {disabled}
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="姓名"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={v} />
-  <Button textColor="text-white" bgColor="bg-orange-500" rounded>
-    Normal Button
-  </Button>
-  {name} {error}
-  <div class="flex">
-    <div class="w-1/2">
-      <Input
-        outlined
-        borderColor="border-green-600"
-        labelColor="text-red-700"
-        label="公司"
-        {disabled}
-        on:input={(e) => console.log(e)}
-        icon="search"
-        helperText={error}
-        helperTextColor="text-red-500"
-        bind:value={num} />
-    </div>
-    <div class="w-1/2">
-      <Input
-        {disabled}
-        borderColor="border-green-600"
-        labelColor="text-red-700"
-        label="联络号码"
-        icon="search"
-        helperText={error}
-        helperTextColor="text-red-500"
-        bind:value={name} />
+    <div class="h-full flex-grow px-4 pt-2 overflow-y-auto">
+      <svelte:component this={selectedComponent.component} />
     </div>
   </div>
-  <Dialog bind:visible={dialogVisible} permanent>
-    <div class="p-6 bg-gray-100 w-64 rounded">
-      <div class="flex flex-col">
-        <div class="mb-4">Huat lah!!!</div>
-        <Button
-          on:click={() => (dialogVisible = false)}
-          outlined
-          outlineColor="border-green-600"
-          textColor="text-green-600">
-          Close
-        </Button>
-      </div>
-    </div>
-  </Dialog>
-  <Autocomplete
-    hideDetails={true}
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Nameol"
-    bind:value={countrySelected}
-    items={countries}
-    keywordsFunction={(it) => `${it.name.toLowerCase()}|^|${it.code.toLowerCase()}`}
-    labelFieldName="name"
-    minCharactersToSearch={1}
-    on:change={countryChanged}
-    outlined />
-
-  <!--    <Input borderColor="border-green-600" labelColor="text-red-700" label="Name"-->
-  <!--           helperText={error} helperTextColor="text-red-500" bind:value={name}/>-->
-
-  <Button
-    textColor="text-white"
-    bgColor="bg-orange-500"
-    rounded
-    on:click={() => (disabled = !disabled)}>
-    Enable/Disable Button
-  </Button>
-  <Button
-    textColor="text-orange-500"
-    outlineColor="border-orange-500"
-    {disabled}
-    outlined
-    on:click={() => console.log('clicked')}>
-    Disabled Button
-  </Button>
-  <TextArea
-    height="h-20"
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="电邮"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name} />
-  {name} {error}
-  <TextArea
-    height="h-20"
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="text area"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name} />
-  <Input
-    outlined
-    borderColor="border-green-600"
-    labelColor="text-red-700"
-    label="Name2"
-    icon="search"
-    helperText={error}
-    helperTextColor="text-red-500"
-    bind:value={name} />
 </div>

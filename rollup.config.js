@@ -8,7 +8,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
-const bundleCss = production ? 'dist/svetamat.css' : 'public/bundle.css';
+const bundleCss = production ? 'dist/svetamat.css' : 'bundle.css';
 
 const name = pkg.name
   .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
