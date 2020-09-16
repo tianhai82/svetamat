@@ -25,7 +25,7 @@ function handleInput(e) {
 
 </style>
 
-<label class="flex items-center float-left {color}" class:cursor-not-allowed={disabled}
+<label class="flex items-center {color}" class:cursor-not-allowed={disabled}
        class:cursor-pointer={!disabled} {disabled}>
   <input type="checkbox" bind:checked {disabled} on:change={handleChange}
          on:input={handleInput} hidden>

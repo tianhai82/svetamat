@@ -9,6 +9,12 @@
   import ProgressGuide from "./components/ProgressGuide.svelte";
   import SpinnerGuide from "./components/SpinnerGuide.svelte";
   import InputGuide from "./components/InputGuide.svelte";
+  import CheckboxGuide from "./components/CheckboxGuide.svelte";
+  import FileInputGuide from "./components/FileInputGuide.svelte";
+  import TextAreaGuide from "./components/TextAreaGuide.svelte";
+  import SliderGuide from "./components/SliderGuide.svelte";
+  import AutocompleteGuide from "./components/AutocompleteGuide.svelte";
+  import CascaderGuide from "./components/CascaderGuide.svelte";
 
   const items = [
     { text: "Installation", component: Installation },
@@ -18,8 +24,14 @@
     { text: "Progress", component: ProgressGuide },
     { text: "Spinner", component: SpinnerGuide },
     { text: "Input", component: InputGuide },
+    { text: "Text Area", component: TextAreaGuide },
+    { text: "File Input", component: FileInputGuide },
+    { text: "Checkbox", component: CheckboxGuide },
+    { text: "Slider", component: SliderGuide },
+    { text: "Auto Complete", component: AutocompleteGuide },
+    { text: "Cascader", component: CascaderGuide },
   ];
-  let selectedComponent = { text: "Input", component: InputGuide };
+  let selectedComponent = { text: "Cascader", component: CascaderGuide };
 </script>
 
 <style>

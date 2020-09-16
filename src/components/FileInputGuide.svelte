@@ -2,25 +2,27 @@
   import Button from "../widgets/Button.svelte";
   import Checkbox from "../widgets/Checkbox.svelte";
   import Input from "../widgets/Input.svelte";
+  import FileInput from "../widgets/FileInput.svelte";
 
-  let label = "Enter Your Name";
-  let value = "Peter Piper";
-  let number = false;
-  let borderColor = "border-gray-700";
-  let labelColor = "text-gray-700";
-  let helperText = "";
-  let helperTextColor = "text-red-600";
-  let outlined = false;
-  let icon = "spellcheck";
+  let label = "Select a file";
+  let accept = ".docx,.txt,.js,.json,.readme";
   let clearable = false;
   let disabled = false;
+
+  let borderColor = "border-gray-700";
+  let labelColor = "text-gray-700";
+  let helperText = "Click the input box to select a file";
+  let helperTextColor = "text-red-600";
+  let outlined = false;
+  let icon = "description";
   let hideDetails = false;
-  let readonly = false;
+  let multiple = false;
+  let value = null;
 
   let showCode = false;
 </script>
 
-<h2 class="text-xl ml-4 font-semibold my-6">Input</h2>
+<h2 class="text-xl ml-4 font-semibold my-6">File Input</h2>
 
 <div class="bg-gray-200 rounded my-4 px-4 table w-full">
   <h3 class="text-lg font-bold ml-3 mt-5 mb-3">Properties</h3>
@@ -39,21 +41,30 @@
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
   </div>
   <div class="table-row">
-    <div class="table-cell py-3 px-3 border-b border-gray-400">value</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">accept</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The value of the input box.
+      Specify what file types the user can pick from the file input dialog box.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
   </div>
   <div class="table-row">
-    <div class="table-cell py-3 px-3 border-b border-gray-400">number</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">multiple</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Specifies whether it's a number type input box.
+      Whether multiple files can be selected
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
-    <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
   </div>
+  <div class="table-row">
+    <div class="table-cell py-3 px-3 border-b border-gray-400">value</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">
+      The FileList selected by the user
+    </div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
+  </div>
+
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">borderColor</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
@@ -137,14 +148,6 @@
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
   </div>
-  <div class="table-row">
-    <div class="table-cell py-3 px-3 border-b border-gray-400">readonly</div>
-    <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Makes input box readonly
-    </div>
-    <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
-    <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
-  </div>
 </div>
 
 <div class="bg-gray-200 rounded p-4 w-full">
@@ -153,10 +156,11 @@
     <Checkbox bind:checked={showCode}>Show Code</Checkbox>
   </h3>
   <div class="my-2">
-    <Input
+    <FileInput
       {label}
+      {accept}
+      {multiple}
       bind:value
-      {number}
       {borderColor}
       {labelColor}
       {helperText}
@@ -165,13 +169,13 @@
       {icon}
       {clearable}
       {disabled}
-      {hideDetails}
-      {readonly} />
+      {hideDetails} />
   </div>
+
   <div class="border border-gray-500 rounded px-3 py-4 w-full">
     <div class="w-full flex flex-row flex-wrap">
       <div class="px-4">
-        <Checkbox label="number" bind:checked={number} />
+        <Checkbox label="multiple" bind:checked={multiple} />
       </div>
       <div class="px-4">
         <Checkbox label="outlined" bind:checked={outlined} />
@@ -185,13 +189,13 @@
       <div class="px-4">
         <Checkbox label="hideDetails" bind:checked={hideDetails} />
       </div>
-      <div class="px-4">
-        <Checkbox label="readonly" bind:checked={readonly} />
-      </div>
     </div>
     <div class="w-full flex flex-row flex-wrap">
       <div class="px-4 pb-2">
         <Input hideDetails outlined label="label" bind:value={label} />
+      </div>
+      <div class="px-4 pb-2">
+        <Input hideDetails outlined label="accept" bind:value={accept} />
       </div>
       <div class="px-4 pb-2">
         <Input hideDetails outlined label="value" bind:value />
@@ -234,18 +238,18 @@
 <pre
   class:hidden={!showCode}
   class="my-2 bg-gray-200 rounded p-5 font-light">
-{`<Input
-    {label}
-    bind:value
-    {number}
-    {borderColor}
-    {labelColor}
-    {helperText}
-    {helperTextColor}
-    {outlined}
-    {icon}
-    {clearable}
-    {disabled}
-    {hideDetails}
-    {readonly} />`}
+{`<FileInput
+  {label}
+  {accept}
+  {multiple}
+  bind:value
+  {borderColor}
+  {labelColor}
+  {helperText}
+  {helperTextColor}
+  {outlined}
+  {icon}
+  {clearable}
+  {disabled}
+  {hideDetails} />`}
 </pre>

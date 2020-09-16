@@ -2,6 +2,7 @@
   import Button from "../widgets/Button.svelte";
   import Checkbox from "../widgets/Checkbox.svelte";
   import Input from "../widgets/Input.svelte";
+  import TextArea from "../widgets/TextArea.svelte";
 
   let label = "Enter Your Name";
   let value = "Peter Piper";
@@ -16,11 +17,12 @@
   let disabled = false;
   let hideDetails = false;
   let readonly = false;
+  let height = "h-20";
 
   let showCode = false;
 </script>
 
-<h2 class="text-xl ml-4 font-semibold my-6">Input</h2>
+<h2 class="text-xl ml-4 font-semibold my-6">Text Area</h2>
 
 <div class="bg-gray-200 rounded my-4 px-4 table w-full">
   <h3 class="text-lg font-bold ml-3 mt-5 mb-3">Properties</h3>
@@ -33,7 +35,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">label</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The label text of the input box.
+      The label text of the text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
@@ -41,7 +43,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">value</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The value of the input box.
+      The value of the text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
@@ -49,7 +51,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">number</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Specifies whether it's a number type input box.
+      Specifies whether it's a number type text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
@@ -57,7 +59,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">borderColor</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The border color of the input box. Accepts valid Tailwindcss border color
+      The border color of the text area. Accepts valid Tailwindcss border color
       class
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
@@ -78,7 +80,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">helperText</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The helper text underneath the input box.
+      The helper text underneath the text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
@@ -88,7 +90,7 @@
       helperTextColor
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The color of the helper text underneath the input box. Accepts Tailwindcss
+      The color of the helper text underneath the text area. Accepts Tailwindcss
       text color class
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
@@ -97,7 +99,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">outlined</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Transformed this into a outlined input box.
+      Transformed this into a outlined text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
@@ -105,7 +107,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">icon</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      The icon to display on the right of the input box. <br /> Accepts a material
+      The icon to display on the right of the text area. <br /> Accepts a material
       icon from this list <a
         class="text-blue-600"
         href="https://material.io/resources/icons/?style=baseline">https://material.io/resources/icons/?style=baseline</a>
@@ -124,7 +126,7 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">disabled</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Disables input box.
+      Disables text area.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
@@ -140,10 +142,18 @@
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">readonly</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">
-      Makes input box readonly
+      Makes text area readonly
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell py-3 px-3 border-b border-gray-400">height</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">
+      Height of the text area. Accepts Tailwindcss height class.
+    </div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">string</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">h-20</div>
   </div>
 </div>
 
@@ -153,7 +163,7 @@
     <Checkbox bind:checked={showCode}>Show Code</Checkbox>
   </h3>
   <div class="my-2">
-    <Input
+    <TextArea
       {label}
       bind:value
       {number}
@@ -166,7 +176,8 @@
       {clearable}
       {disabled}
       {hideDetails}
-      {readonly} />
+      {readonly}
+      {height} />
   </div>
   <div class="border border-gray-500 rounded px-3 py-4 w-full">
     <div class="w-full flex flex-row flex-wrap">
@@ -227,6 +238,9 @@
           label="helperTextColor"
           bind:value={helperTextColor} />
       </div>
+      <div class="px-4 pb-2">
+        <Input hideDetails outlined label="height" bind:value={height} />
+      </div>
     </div>
   </div>
 </div>
@@ -234,18 +248,19 @@
 <pre
   class:hidden={!showCode}
   class="my-2 bg-gray-200 rounded p-5 font-light">
-{`<Input
-    {label}
-    bind:value
-    {number}
-    {borderColor}
-    {labelColor}
-    {helperText}
-    {helperTextColor}
-    {outlined}
-    {icon}
-    {clearable}
-    {disabled}
-    {hideDetails}
-    {readonly} />`}
-</pre>
+  {`<TextArea
+  {label}
+  bind:value
+  {number}
+  {borderColor}
+  {labelColor}
+  {helperText}
+  {helperTextColor}
+  {outlined}
+  {icon}
+  {clearable}
+  {disabled}
+  {hideDetails}
+  {readonly}
+  {height} />`}
+  </pre>
