@@ -31,7 +31,7 @@
     { text: "Auto Complete", component: AutocompleteGuide },
     { text: "Cascader", component: CascaderGuide },
   ];
-  let selectedComponent = { text: "Cascader", component: CascaderGuide };
+  let selectedComponent = { text: "Installation", component: Installation };
 </script>
 
 <style>
