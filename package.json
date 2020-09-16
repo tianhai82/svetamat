@@ -32,7 +32,7 @@
     "tailwindcss-elevation": "^0.3.3"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && purgecss -c purgecss.config.js",
     "dev": "rollup -c -w",
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev --port 5001"
