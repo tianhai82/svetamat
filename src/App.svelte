@@ -15,6 +15,7 @@
   import SliderGuide from "./components/SliderGuide.svelte";
   import AutocompleteGuide from "./components/AutocompleteGuide.svelte";
   import CascaderGuide from "./components/CascaderGuide.svelte";
+  import ToggleGuide from "./components/ToggleGuide.svelte";
 
   const items = [
     { text: "Installation", component: Installation },
@@ -30,6 +31,7 @@
     { text: "Slider", component: SliderGuide },
     { text: "Auto Complete", component: AutocompleteGuide },
     { text: "Cascader", component: CascaderGuide },
+    { text: "Toggle", component: ToggleGuide },
   ];
   let selectedComponent = { text: "Installation", component: Installation };
 </script>
