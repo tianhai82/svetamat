@@ -7,8 +7,12 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import pkg from './package.json';
 
-const production = !process.env.ROLLUP_WATCH;
-const bundleCss = production ? 'dist/svetamat.css' : 'bundle.css';
+let production = !process.env.ROLLUP_WATCH;
+const doc = process.env.NODE_ENV === "doc";
+let bundleCss = (production && !doc) ? 'svetamat.css' : 'bundle.css';
+if(doc) {
+  bundleCss = 'bundle.css';
+}
 
 const name = pkg.name
   .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -16,12 +20,12 @@ const name = pkg.name
   .replace(/-\w/g, (m) => m[1].toUpperCase());
 
 export default {
-  input: !production ? 'src/main.js' : 'src/index.js',
-  output: !production ? {
+  input: (production && !doc) ? 'src/index.js' : 'src/main.js',
+  output: production ? doc ? {
     sourcemap: true,
     format: 'iife',
     name: 'app',
-    file: 'public/bundle.js',
+    file: 'docs/bundle.js',
   } : [
       {
         file: pkg.module,
@@ -35,7 +39,12 @@ export default {
         sourcemap: true,
         name,
       },
-    ],
+    ] : {
+      sourcemap: true,
+      format: 'iife',
+      name: 'app',
+      file: 'public/bundle.js',
+    },
   plugins: [
     svelte({
       preprocess: sveltePreprocess({ postcss: true }),

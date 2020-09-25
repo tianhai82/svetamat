@@ -28,10 +28,10 @@
     { text: "Text Area", component: TextAreaGuide },
     { text: "File Input", component: FileInputGuide },
     { text: "Checkbox", component: CheckboxGuide },
+    { text: "Toggle", component: ToggleGuide },
     { text: "Slider", component: SliderGuide },
     { text: "Auto Complete", component: AutocompleteGuide },
     { text: "Cascader", component: CascaderGuide },
-    { text: "Toggle", component: ToggleGuide },
   ];
   let selectedComponent = { text: "Installation", component: Installation };
 </script>
