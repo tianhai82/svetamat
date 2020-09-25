@@ -100,7 +100,7 @@
       Transformed this into a outlined input box.
     </div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
-    <div class="table-cell py-3 px-3 border-b border-gray-400">''</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
   </div>
   <div class="table-row">
     <div class="table-cell py-3 px-3 border-b border-gray-400">icon</div>
