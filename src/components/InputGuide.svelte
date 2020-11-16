@@ -146,6 +146,14 @@
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
   </div>
+  <div class="table-row">
+    <div class="table-cell py-3 px-3 border-b border-gray-400">password</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">
+      Mask input
+    </div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
+  </div>
 </div>
 
 <div class="bg-gray-200 rounded p-4 w-full">
