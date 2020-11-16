@@ -17,6 +17,7 @@
   export let disabled = false;
   export let hideDetails = false;
   export let readonly = false;
+  export let password = false;
 
   let hasFocus = false;
   let iconCls = "";
@@ -29,7 +30,9 @@
   });
 
   let type = "text";
-  $: if (number) {
+  $: if (password) {
+    type = "password";
+  } else if (number) {
     type = "number";
   } else {
     type = "text";

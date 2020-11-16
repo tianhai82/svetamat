@@ -15,11 +15,12 @@ export let clearable = false;
 export let disabled = false;
 export let hideDetails = false;
 export let readonly = false;
+export let password = false;
 
 </script>
 {#if !outlined}
   <InputStd {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
-            {number} {clearable} {disabled} {hideDetails} {readonly}
+            {number} {clearable} {disabled} {hideDetails} {readonly} {password}
             on:focus
             on:blur
             on:keydown
@@ -28,7 +29,7 @@ export let readonly = false;
             {helperTextColor} on:input/>
 {:else}
   <InputOutlined {label} bind:value={value} {borderColor} {labelColor} {helperText} {icon}
-                 {number} {clearable} {disabled} {hideDetails} {readonly}
+                 {number} {clearable} {disabled} {hideDetails} {readonly} {password}
                  on:focus
                  on:blur
                  on:keydown

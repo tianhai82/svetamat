@@ -16,6 +16,7 @@
   let disabled = false;
   let hideDetails = false;
   let readonly = false;
+  let password = false;
 
   let showCode = false;
 </script>
@@ -156,6 +157,7 @@
     <Input
       {label}
       bind:value
+      {password}
       {number}
       {borderColor}
       {labelColor}
@@ -187,6 +189,9 @@
       </div>
       <div class="px-4">
         <Checkbox label="readonly" bind:checked={readonly} />
+      </div>
+      <div class="px-4">
+        <Checkbox label="password" bind:checked={password} />
       </div>
     </div>
     <div class="w-full flex flex-row flex-wrap">
