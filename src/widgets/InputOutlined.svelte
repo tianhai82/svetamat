@@ -43,6 +43,8 @@
         break;
       case "number":
         value = +event.target.value;
+      default: 
+        value = event.target.value;
     }
     dispatch("input", value);
   }
