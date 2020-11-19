@@ -24,6 +24,7 @@ export let password = false;
             on:focus
             on:blur
             on:keydown
+            on:keyup
             on:clear
             on:click
             {helperTextColor} on:input/>
@@ -33,6 +34,7 @@ export let password = false;
                  on:focus
                  on:blur
                  on:keydown
+                 on:keyup
                  on:clear
                  on:click
                  {helperTextColor} on:input/>

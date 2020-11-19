@@ -135,6 +135,7 @@
         on:focus
         on:blur
         on:keydown
+        on:keyup
         on:click
         style="padding-bottom: 3px;"
         class="h-8 appearance-none bg-transparent border-none w-full

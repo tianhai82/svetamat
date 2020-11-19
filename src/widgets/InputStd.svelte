@@ -114,6 +114,7 @@
         on:focus
         on:blur
         on:keydown
+        on:keyup
         on:click
         style={inputPadBottom}
         class="pt-6 appearance-none bg-transparent border-none w-full
