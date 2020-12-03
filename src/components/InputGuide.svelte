@@ -17,6 +17,7 @@
   let hideDetails = false;
   let readonly = false;
   let password = false;
+  let date = false;
 
   let showCode = false;
 </script>
@@ -154,6 +155,14 @@
     <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
     <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
   </div>
+  <div class="table-row">
+    <div class="table-cell py-3 px-3 border-b border-gray-400">date</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">
+      Change input type to 'date'
+    </div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">boolean</div>
+    <div class="table-cell py-3 px-3 border-b border-gray-400">false</div>
+  </div>
 </div>
 
 <div class="bg-gray-200 rounded p-4 w-full">
@@ -166,6 +175,7 @@
       {label}
       bind:value
       {password}
+      {date}
       {number}
       {borderColor}
       {labelColor}
@@ -200,6 +210,9 @@
       </div>
       <div class="px-4">
         <Checkbox label="password" bind:checked={password} />
+      </div>
+      <div class="px-4">
+        <Checkbox label="date" bind:checked={date} />
       </div>
     </div>
     <div class="w-full flex flex-row flex-wrap">

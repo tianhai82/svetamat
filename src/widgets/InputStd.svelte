@@ -18,6 +18,7 @@
   export let hideDetails = false;
   export let readonly = false;
   export let password = false;
+  export let date = false;
 
   let hasFocus = false;
   let iconCls = "";
@@ -34,6 +35,8 @@
     type = "password";
   } else if (number) {
     type = "number";
+  } else if (date) {
+    type = "date";
   } else {
     type = "text";
   }
