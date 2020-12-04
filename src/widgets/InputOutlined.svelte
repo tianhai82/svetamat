@@ -25,7 +25,7 @@
   let boxWidth;
 
   const y = tweened(0.75, {
-    duration: 50,
+    duration: 50
   });
 
   let type = "text";
@@ -46,7 +46,7 @@
         break;
       case "number":
         value = +event.target.value;
-      default: 
+      default:
         value = event.target.value;
     }
     dispatch("input", value);
@@ -82,7 +82,11 @@
   }
 
   $: if (labelWidth) {
-    if (!hasFocus && (value == null || value.toString().length === 0)) {
+    if (
+      !hasFocus &&
+      type !== "date" &&
+      (value == null || value.toString().length === 0)
+    ) {
       setLegendStyle("");
     } else {
       setLegendStyle(`width:${labelWidth + 4}px;margin-left:6px;`);
@@ -97,7 +101,7 @@
     } else {
       setFieldsetCls("border");
     }
-    if (value == null || value.toString().length === 0) {
+    if (type !== "date" && (value == null || value.toString().length === 0)) {
       setLabelCls("text-gray-600");
       y.set(-0.15);
     } else {
@@ -142,12 +146,14 @@
         on:click
         style="padding-bottom: 3px;"
         class="h-8 appearance-none bg-transparent border-none w-full
-          text-gray-800 px-2 focus:outline-none" />
-      <div class="float-right flex items-center mr-2">
+        text-gray-800 px-2 focus:outline-none" />
+      <div class="float-right flex items-center mr-2 mb-1">
         <i
           class={clearable && !disabled ? 'material-icons md-18 mr-2 cursor-pointer' : ''}
           class:hidden={!clearable || disabled}
-          on:click={clear}>clear</i>
+          on:click={clear}>
+          clear
+        </i>
         <i class={iconCls} class:opacity-50={disabled}>{icon}</i>
       </div>
     </div>

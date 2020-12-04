@@ -27,7 +27,7 @@
   $: iconCls = icon ? "material-icons md-18 pointer-events-none" : "hidden";
 
   const y = tweened(1, {
-    duration: 50,
+    duration: 50
   });
 
   let type = "text";
@@ -48,7 +48,7 @@
         break;
       case "number":
         value = +event.target.value;
-      default: 
+      default:
         value = event.target.value;
     }
     dispatch("input", value);
@@ -75,7 +75,7 @@
   } else {
     inputPadBottom = "padding-bottom:8px";
     labelCls = "absolute left-0 px-2 text-sm pointer-events-none text-gray-600";
-    if (valueEmpty) {
+    if (type !== "date" && valueEmpty) {
       y.set(1);
       labelCls = "absolute left-0 px-2 pointer-events-none text-gray-600";
     } else {
@@ -121,12 +121,14 @@
         on:click
         style={inputPadBottom}
         class="pt-6 appearance-none bg-transparent border-none w-full
-          text-gray-800 px-2 focus:outline-none" />
-      <div class="float-right flex items-center mr-2">
+        text-gray-800 px-2 focus:outline-none" />
+      <div class="float-right flex items-center mr-2 mt-3">
         <i
           class={clearable && !disabled ? 'material-icons md-18 mr-2 cursor-pointer' : ''}
           class:hidden={!clearable || disabled}
-          on:click={clear}>clear</i>
+          on:click={clear}>
+          clear
+        </i>
         <i class={iconCls} class:opacity-50={disabled}>{icon}</i>
       </div>
     </div>
